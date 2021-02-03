@@ -2,7 +2,7 @@
   height: 100vh;
   align-items: center;
   display: flex;
-  background-color: aquamarine;
+  background-color: #f1ededc7;
   .form_body{
     height: 565px;
     width: 300px;
@@ -51,6 +51,8 @@
         width: 300px;
         border: 1px solid gray;
         border-radius: 5px;
+        font-weight: 700;
+        color: #ffffff;
         background-color: $theme_color;
       }
     }
@@ -58,5 +60,15 @@
   .login{
     margin-top: 15px;
     text-align: center;
+    .login_btn{
+      font-weight: 700;
+    }
+  }
+  .sign_up{
+    margin-top: 15px;
+    text-align: center; 
+    .registration_btn{
+      font-weight: 700;
+    }
   }
 }

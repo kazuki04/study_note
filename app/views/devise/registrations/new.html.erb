@@ -25,13 +25,14 @@
           <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)", autocomplete: "new-password", class: "field" %>
 
         <div class="actions">
-          <%= f.submit "Sign up" , id:"submit_btn" %>
+          <%= f.submit "登録" , id:"submit_btn" %>
         </div>
       <% end %>
     </div>
 
     <div class="login">
-      ログインは<a>こちら</a>
+      <p>アカウントを既に持っていますか？</p>
+      <%= link_to 'ログイン', new_user_session_path, class:"login_btn" %>
     </div>
   </div>
 
