@@ -1,0 +1,74 @@
+.wrapper{
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  background-color: #f1ededc7;
+  .form_body{
+    height: 565px;
+    width: 300px;
+    padding:60px 120px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    box-shadow: 2px 2px 4px gray;
+    .google_auth{
+      height: 40px;
+      width: 302px;
+      border: 1px solid ;
+      text-align: center;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+    hr{
+      width: 300px;
+      margin: 25px 0;
+    }
+    .form_title{
+      margin-bottom: 45px;
+      text-align: center;
+      .registration_title{
+        font-size: xxx-large;
+        font-family: Georgia, serif;
+        margin-bottom: 15px;
+      }
+    }
+    .field{
+      height: 40px;
+      width: 290px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+    .actions{
+      text-align: center;
+      #submit_btn{
+        height: 40px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: $theme_color;
+      }
+    }
+  }
+  .login{
+    margin-top: 15px;
+    text-align: center;
+    .login_btn{
+      font-weight: 700;
+    }
+  }
+  .sign_up{
+    margin-top: 15px;
+    text-align: center; 
+    .registration_btn{
+      font-weight: 700;
+    }
+  }
+}
