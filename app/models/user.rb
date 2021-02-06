@@ -8,9 +8,9 @@ class User < ApplicationRecord
   def self.from_omniauth(auth_info)
     sns = SnsCredential.where(provider: auth_info.provider, uid: auth_info.uid).first_or_create
     
-    user = User.where(email: auth.info.email).first_or_initialize(
-      nickname: auth.info.name,
-      email: auth.info.email
+    user = User.where(email: auth_info.info.email).first_or_initialize(
+      nickname: auth_info.info.name,
+      email: auth_info.info.email
     )
     
     if user.persisted?
