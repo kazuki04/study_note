@@ -21,17 +21,14 @@
         <% if @sns.present?%>
           <% hidden_field_tag :sns_auth, true%>
         <% else %>
-
           <%= f.email_field :email, autofocus: true, placeholder: "メールアドレス", autocomplete: "email", class: "field"%>
-
           <%= f.password_field :password, placeholder: "パスワード", autocomplete: "new-password", class: "field"%>
-
           <%= f.password_field :password_confirmation, placeholder: "パスワード(確認用)", autocomplete: "new-password", class: "field" %>
-
-          <div class="actions">
-            <%= f.submit "登録" , id:"submit_btn" %>
-          </div>
         <% end %>
+        
+        <div class="actions">
+          <%= f.submit "登録" , id:"submit_btn" %>
+        </div>
       <% end %>
     </div>
 
