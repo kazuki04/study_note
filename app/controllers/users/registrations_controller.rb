@@ -10,9 +10,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if params[:sns_auth]
+      password = Devise.friendly_token
+      params[:user][:password] = password
+      params[:user][:password] = password
+    end
+    super
+  end
 
   # GET /resource/edit
   # def edit
