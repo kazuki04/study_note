@@ -1,3 +1,6 @@
-@import "modules/color";
-@import "modules/_style";
+@import "modules/theme";
+@import "modules/style";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "modules/devise_registration";
+@import "modules/goal_managements"

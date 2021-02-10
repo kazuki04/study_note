@@ -57,3 +57,4 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 gem 'omniauth'
+gem 'font-awesome-sass', '~> 5.15.1'
