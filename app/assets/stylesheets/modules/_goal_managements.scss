@@ -1,0 +1,148 @@
+.body{
+  height: 100vh;
+  header{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    .year_month{
+      margin-left: 120px;
+      display: flex;
+      align-items: center;
+      font-size: x-large;
+    }
+    .search_field{
+      width: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .fas{
+        font-size: larger;
+        position: absolute;
+        top: 25px;
+        left: 10px;
+      }
+      #search_form{
+        width: 500px;
+        border: 1px solid gray;
+        border-radius:10px;
+        #search_input{
+          height: 35px;
+          width: 450px;
+          margin-left: 40px;
+          border : none;
+          outline: 0;
+        }
+      }
+    }
+    .search_icon{
+      font-size: larger;
+      position: absolute;
+      top: 20px;
+      right: 280px;
+    }
+    .pen_icon{
+      font-size: larger;
+      position: absolute;
+      top: 20px;
+      right: 230px;
+    }
+    .account{
+      margin-right: 100px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .wrapper{
+    border-top: 1px solid $border_color;
+    background-color: #ffff;
+    .side{
+      height: 100%;
+      width: 500px;
+      .new_note{
+        margin-top: 30px;
+        text-align: center;
+        .new_note_btn{
+          padding: 7px 60px;
+          border: 1px solid $theme_color;
+          border-radius: 25px;
+          font-weight: 600;
+        }
+      }
+    }
+    .main{
+      height: 100%;
+      width: 100%;
+      border-left: 1px solid $border_color;
+      .main_header{
+        display: flex;
+        justify-content: space-between;
+        .goal_field{
+          width: 60%;
+          margin: 70px;
+          .title_goal{
+            @include title;
+          }
+          .goal_list{
+            margin-top: 20px;
+            .goal_list_item{
+              margin-left: 20px;
+              margin-bottom: 10px;
+              font-size: x-large;
+            }
+          }
+        }
+        .study_time_field{
+          width: 40%;
+          margin-top: 70px;
+          margin-right: 170px;
+          font-size: x-large;
+          .study_time_title{
+            @include title;
+          }
+          .total_study_time{
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-bottom: 10px;
+          }
+          .study_time_average{
+            margin-left: 20px;
+          }
+        }
+      }
+      .study_field{
+        margin: 70px;
+        .study_field_title{
+          @include title; 
+        }
+        .study_list{
+          margin-top: 30px;
+          margin-left: 20px;
+          font-size: large;
+          .study_list_item{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 50px;
+            border: 1px solid $border_color;
+            box-shadow: 2px 2px 4px gray;
+            .study_info{
+              display: flex;
+              justify-content: space-between;
+              position: relative;
+              .study_hightlight{
+                position: absolute;
+                left: 120px;
+              }
+              .study_time{
+                margin-right: 70px;
+              }
+            }
+            .study_excerpt{
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
