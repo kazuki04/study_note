@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2021_02_11_051149) do
     t.string "excerpt", null: false
     t.text "body", null: false
     t.date "written_day", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

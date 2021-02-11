@@ -1,0 +1,42 @@
+.form_field{
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid $border_color;
+  #note_form{
+    width: 60%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    .date{
+      font-size: larger;
+    }
+    .note_field{
+      height: 40px;
+      padding: 5px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      font-size: large;
+    }
+    .note_field_body{
+      height: 100%;
+      padding : 10px;
+      margin-bottom: 10px;
+      font-size: large;
+      resize: none;
+    }
+  }
+  .btn{
+    text-align: center;
+    #submit_btn{
+      height: 40px;
+      width: 40%;
+      margin: 30px 0;
+      border: 1px solid gray;
+      border-radius: 5px;
+      color: #ffff;
+      background-color: $theme_color;
+    }
+  }
+}

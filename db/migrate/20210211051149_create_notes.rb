@@ -5,6 +5,7 @@ class CreateNotes < ActiveRecord::Migration[6.0]
       t.string :excerpt, null: false
       t.text :body, null: false
       t.date :written_day, null: false
+      t.references :user, foregin_key: true
       t.timestamps
     end
   end

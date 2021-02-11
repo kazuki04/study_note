@@ -2,13 +2,18 @@
   height: 100vh;
   header{
     height: 70px;
+    width: 100%;
+    // position: fixed;
+    // z-index: 1;
     display: flex;
     justify-content: space-between;
-    .year_month{
-      margin-left: 120px;
+    background-color: #ffff;
+    .study_note_title{
+      width: 380px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      font-size: x-large;
+      @include title;
     }
     .search_field{
       width: 600px;
@@ -53,9 +58,13 @@
       align-items: center;
     }
   }
+
   .wrapper{
+    height: calc(100vh - 70px);
     border-top: 1px solid $border_color;
     background-color: #ffff;
+    // position: relative;
+    // top: 70px;
     .side{
       height: 100%;
       width: 500px;
@@ -74,6 +83,7 @@
       height: 100%;
       width: 100%;
       border-left: 1px solid $border_color;
+      overflow: scroll;
       .main_header{
         display: flex;
         justify-content: space-between;
