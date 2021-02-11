@@ -1,0 +1,39 @@
+.note_show{
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  .note_info{
+    width: 60%;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    .date{
+      margin-bottom: 10px;
+    }
+    .note_content{
+      text-align: center;
+      .highlight_field{
+        margin-bottom: 10px;
+        display: flex;
+        font-size: x-large;
+        font-weight: 600;
+        .highlight_title{
+          margin-right: 20px;
+        }
+      }
+      .excerpt_field{
+        display: flex;
+        font-size: x-large;
+        font-weight: 600;
+        .excerpt_title{
+          margin-right: 20px;
+        }
+      }
+      .body_field{
+        font-size: large;
+      }
+    }
+  }
+}
