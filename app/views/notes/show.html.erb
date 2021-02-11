@@ -1,0 +1,13 @@
+<div class="body">
+  <%= render "shared/header"%>
+  <div class="note_show">
+    <div class="date">
+      <%=  %>
+    </div>
+    <div class="note_content">
+      <%= @note.highlight %>
+      <%= @note.excerpt %>
+      <%= @note.body %>
+    </div>
+  </div>
+</div>
