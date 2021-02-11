@@ -1,0 +1,24 @@
+<header>
+  <div class="study_note_title">
+    <%= link_to root_path do %>
+      <h1>Study Note</h1>
+    <% end %>
+  </div>
+  <div class="search_field">
+    <form id="search_form">
+      <label for="search_input">
+        <i class="fas fa-search"></i>
+      </label>
+      <input type="text" id="search_input">
+    </form>
+  </div>
+  <div class="search_icon">
+    <i class="fas fa-search"></i>
+  </div>
+  <div class="pen_icon">
+    <i class="fas fa-pencil-alt"></i>
+  </div>
+  <div class="account">
+    <%= current_user.nickname %>
+  </div>
+</header>
