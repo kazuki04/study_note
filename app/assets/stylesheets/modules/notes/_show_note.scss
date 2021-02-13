@@ -1,0 +1,49 @@
+.note_show{
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  .note_info{
+    width: 60%;
+    padding: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: $main_background_color;
+    .note_show_header{
+      display: flex;
+      justify-content: space-between;
+      .date{
+        margin-bottom: 10px;
+      }
+    }
+    .note_content{
+      .highlight_field{
+        margin-bottom: 15px;
+        display: flex;
+        font-size: x-large;
+        font-weight: 600;
+        .highlight_title{
+          margin-right: 20px;
+        }
+      }
+      .excerpt_field{
+        margin-bottom: 40px;
+        display: flex;
+        font-size: x-large;
+        font-weight: 600;
+        
+        .excerpt_title{
+          margin-right: 20px;
+        }
+      }
+      .body_field{
+        height: 100%;
+        font-size: large;
+        .CodeRay{
+          background-color: #c4e4ffba;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

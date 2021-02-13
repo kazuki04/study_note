@@ -15,6 +15,10 @@ class NotesController < ApplicationController
     
   end
 
+  def show
+    @note = Note.find(params[:id])
+  end
+
   private
   def note_params
     params.require(:note).permit(:written_day, :highlight, :excerpt, :body).merge(user_id: current_user.id)
