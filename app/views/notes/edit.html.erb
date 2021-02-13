@@ -1,20 +1,4 @@
 <div class="body">
   <%= render "shared/header" %>
-  <div class="form_field">
-      <%= form_with model: @note, id:"note_form", local: true do |f| %>
-        <div class="date">
-          <%= "#{@today_date.year}年#{@today_date.month}月#{@today_date.day}日" %>
-        </div>
-
-        <%= f.hidden_field :written_day, value: @today_date %>
-        <%= f.text_field :highlight, class:"note_field", placeholder: "highlight" %>
-        <%= f.text_field :excerpt, class:"note_field", placeholder: "excerpt" %>
-        <%= f.text_area :body, class:"note_field_body" %>
-        
-        <div class="btn">
-          <%= f.submit id:"submit_btn" %>
-        </div>
-
-      <% end %>
-  </div>
+  <%= render "form", today_date: @today_date, note: @note %>
 </div>
