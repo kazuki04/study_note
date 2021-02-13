@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   before_action :set_today_date, only: [:new, :create, :edit]
   before_action :set_note, only: [:show, :edit, :update]
+  before_action :user_confirmation, only: [:edit, :update]
 
   def new
     @note = Note.new
@@ -41,5 +42,9 @@ class NotesController < ApplicationController
 
   def set_note
     @note = Note.find(params[:id])
+  end
+
+  def user_confirmation
+    redirect_to root_path if current_user.id != @note.user_id
   end
 end
