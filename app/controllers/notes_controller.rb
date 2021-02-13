@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
-  before_action :set_today_date, only: [:new, :create]
+  before_action :set_today_date, only: [:new, :create, :edit]
+  before_action :set_note, only: [:show, :edit, :update]
 
   def new
     @note = Note.new
@@ -16,7 +17,17 @@ class NotesController < ApplicationController
   end
 
   def show
-    @note = Note.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @note.update(note_params) 
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   private
@@ -26,5 +37,9 @@ class NotesController < ApplicationController
 
   def set_today_date
     @today_date = Date.today
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
   end
 end
