@@ -2,8 +2,15 @@
   <%= render "shared/header"%>
   <div class="note_show">
     <div class="note_info">
-      <div class="date">
-        <%=  @note.written_day%>
+      <div class="note_show_header">
+        <div class="date">
+          <%=  @note.written_day%>
+        </div>
+        <% if user_signed_in? %>
+          <div class="note_edit_btn">
+            <%= link_to "編集する" %>
+          </div>
+        <% end %>
       </div>
       <div class="note_content">
         <div class="highlight_field">
@@ -15,7 +22,7 @@
           <p class="note_excerpt"><%= @note.excerpt %></p>
         </div>
         <div class="body_field">
-          <p class="note_body"><%= @note.body %></p>
+          <%= markdown(@note.body).html_safe %>
         </div>
       </div>
     </div>
