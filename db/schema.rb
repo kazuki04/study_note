@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_051149) do
+ActiveRecord::Schema.define(version: 2021_02_14_012847) do
 
-  create_table "goal_managements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "goal_name"
-    t.bigint "year_month_id"
+  create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "year_month", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["year_month_id"], name: "index_goal_managements_on_year_month_id"
+  end
+
+  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "goal_name"
+    t.bigint "calendar_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_goals_on_calendar_id"
   end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -59,6 +65,6 @@ ActiveRecord::Schema.define(version: 2021_02_11_051149) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "goal_managements", "year_months"
+  add_foreign_key "goals", "calendars"
   add_foreign_key "sns_credentials", "users"
 end
