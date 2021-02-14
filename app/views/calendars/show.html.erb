@@ -11,6 +11,11 @@
       <div class="main_header">
         <div class="goal_field">
           <h1 class="title_goal">Goal</h1>
+          <%= form_with model: [@calendar, @goal], local: true do |f| %>
+            <% @calendar.goals.each_with_index do |goal, i| %>
+              <%= f.text_field :goal_name, data:{id: i} %>
+            <% end %>
+          <% end %>
           <ul class="goal_list">
             <li class="goal_list_item">Dockerの基礎理解</li>
             <li class="goal_list_item">Golangでアプリ開発</li>
