@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations'
   }
-  resources :notes, only:[:new, :create, :show]
+  resources :notes, only:[:new, :create, :show, :edit, :update]
 end

@@ -15,9 +15,11 @@
   <div class="search_icon">
     <i class="fas fa-search"></i>
   </div>
-  <div class="pen_icon">
-    <i class="fas fa-pencil-alt"></i>
-  </div>
+  <%= link_to new_note_path do %>
+    <div class="pen_icon">
+      <i class="fas fa-pencil-alt"></i>
+    </div>
+  <% end %>
   <div class="account">
     <%= current_user.nickname %>
   </div>
