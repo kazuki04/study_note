@@ -13,8 +13,13 @@
           <h1 class="title_goal">Goal</h1>
           <%= form_with model: [@calendar, @goal], local: true do |f| %>
             <% @calendar.goals.each_with_index do |goal, i| %>
-              <%= f.text_field :goal_name, data:{id: i} %>
+              <div class="input_field">
+                <%= f.text_field :goal_name, data:{id: i} %>
+                <button type="button">追加</button>
+                <button type="button">削除</button>
+              </div>
             <% end %>
+            <%= f.submit "保存する"%>
           <% end %>
           <ul class="goal_list">
             <li class="goal_list_item">Dockerの基礎理解</li>
