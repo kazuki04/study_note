@@ -1,0 +1,2 @@
+class GoalManagement < ApplicationRecord
+end
