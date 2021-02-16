@@ -20,8 +20,8 @@
               <div class="input_field">
                 <div class="input_item">
                   <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input" %> 
-                  <%= link_to "追加", "#",  id:"add_btn_#{i}", class:"goal_btn" %>
-                  <%= link_to "削除", "#", html_options = {id:"delete_btn_#{i}", class:"goal_btn"} %>
+                  <%= link_to "追加", "#", id:"add_btn_#{i}", class:"goal_add_btn", data:{index: i} %>
+                  <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
                 </div>
               </div>
             <% end %>
