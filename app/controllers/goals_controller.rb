@@ -12,12 +12,6 @@ class GoalsController < ApplicationController
       end
   end
 
-    # goal_names = params.require(:goal)[:goal_names] 
-    # goal_names.each do |goal|
-
-    #   Goal.create(goal_name: goal, calendar_id: params[:calendar_id])
-    # end 
-
 
   private
 

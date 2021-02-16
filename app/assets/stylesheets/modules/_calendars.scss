@@ -103,9 +103,15 @@
         .goal_field{
           width: 60%;
           margin: 50px;
-          .title_goal{
-            margin-bottom: 13px;
-            @include title;
+          .goal_header{
+            display: flex;
+            .title_goal{
+              margin-bottom: 13px;
+              @include title;
+            }
+            .fa-edit{
+
+            }
           }
           #goal_form{
             width: 70%;
