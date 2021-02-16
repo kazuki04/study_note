@@ -15,17 +15,33 @@
       <div class="main_top">
         <div class="goal_field">
           <h1 class="title_goal">Goal</h1>
-          <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>
-            <% @selected_month.goals.each_with_index do |goal, i| %>
-              <div class="input_field">
-                <div class="input_item">
-                  <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input" %> 
-                  <%= link_to "追加", "#", id:"add_btn_#{i}", class:"goal_add_btn", data:{index: i} %>
-                  <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+          <% if @selected_month.goals.empty? %>
+            <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>
+              <% @selected_month.goals.each_with_index do |goal, i| %>
+                <div class="input_field">
+                  <div class="input_item">
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input" %> 
+                    <%= link_to "追加", "#", id:"add_btn_#{i}", class:"goal_add_btn", data:{index: i} %>
+                    <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
+              <%= f.submit "保存する", id:"submit_btn"%>
             <% end %>
-            <%= f.submit "保存する", id:"submit_btn"%>
+          <% else %>
+              <%= form_with url: calendar_goal_path(@selected_month), method: :PATCH, id:"goal_form", local: true do |f| %>
+              <% @goals.each_with_index do |goal, i| %>
+                <div class="input_field">
+                  <div class="input_item">
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name %> 
+                    <%= link_to "追加", "#", id:"add_btn_#{i}", class:"goal_add_btn", data:{index: i} %>
+                    <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+                  </div>
+                </div>
+              <% end %>
+              <%= f.submit "保存する", id:"submit_btn"%>
+            <% end %> 
+
           <% end %>
           <ul class="goal_list">
             <li class="goal_list_item">Dockerの基礎理解</li>
