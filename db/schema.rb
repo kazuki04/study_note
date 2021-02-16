@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2021_02_14_012847) do
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "year_month", null: false
+    t.integer "year", null: false
+    t.integer "month", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
