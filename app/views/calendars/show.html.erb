@@ -1,0 +1,117 @@
+<div class="body">
+  <%= render "shared/header"%>
+
+  <div class="wrapper">
+    <div class="side">
+      <div class="new_note">
+        <%= link_to "ノートを書く", new_note_path, class: "new_note_btn" %>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="month_field">
+        <%= link_to "<", calendar_path(@last_month), class:"arrow-left" %><h1 class="this_month"><%= "#{@selected_month.month}月" %></h1><%= link_to ">", calendar_path(@next_month), class:"arrow-right" %>
+      </div>
+      <div class="main_top">
+        <div class="goal_field">
+          <div class="goal_header">
+            <h1 class="title_goal">Goal</h1>
+            <i class="fas fa-edit"></i>
+          </div>
+          <% if @goal.id == nil %>
+            <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>
+                <div id="input_field">
+                  <div class="input_item">
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_0", class:"goal_input", data:{index: 0} %> 
+                    <%= link_to "削除", "#", id:"delete_btn_0", class:"goal_delete_btn", data:{index: 0} %>
+                  </div>
+                </div>
+                <div class="btn_field">
+                  <button id="add_btn">追加</button>
+                  <%= f.submit "保存する", id:"submit_btn"%>
+              </div>
+            <% end %>
+          <% else %>
+            <%= form_with url: calendar_goal_path(@selected_month), method: :PATCH, id:"goal_form", local: true do |f| %>
+              <div id="input_field">
+                <% @goals.each_with_index do |goal, i| %>
+                  <div class="input_item">
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name, data:{index: i} %>
+                    <%#= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+                    <%= content_tag(:p,"削除", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i}) %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="btn_field">
+                <button id="add_btn">追加</button>
+                <%= f.submit "保存する", id:"submit_btn"%>
+              </div>
+            <% end %> 
+
+          <% end %>
+          <ul class="goal_list">
+            <% @selected_month.goals.each do |goal|%>
+              <li class="goal_list_item"><%= goal.goal_name %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="study_time_field">
+          <h1 class="study_time_title">Study Time</h1>
+          <div class="total_study_time">
+            <p class="total_time">Total: 20h</p>
+          </div>
+
+          <div class="study_time_average">
+            <p>Avarage: 2h</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="study_field">
+        <h1 class="study_field_title">Study List</h2>
+        <ul class="study_list">
+          <li class="study_list_item">
+            <div class="study_info">
+              <div class="study_list_item_date">
+                <p>2月1日</p>
+              </div>
+              <div class="study_hightlight">
+                <p>HL:セクション7まで</p>
+              </div>
+              <div class="study_time">
+                <p>Study Time:5時間</p>
+              </div>
+            </div>
+
+            <div class="study_excerpt">
+              <p>Golangの基礎文法</p>
+            </div>
+          </li>
+
+          <li class="study_list_item">
+            <div class="study_info">
+              <div class="study_list_item_date">
+                <p>2月1日</p>
+              </div>
+              <div class="study_hightlight">
+                <p>HL:セクション7まで</p>
+              </div>
+              <div class="study_time">
+                <p>Study Time:5時間</p>
+              </div>
+            </div>
+
+            <div class="study_excerpt">
+              <p>Golangの基礎文法</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>

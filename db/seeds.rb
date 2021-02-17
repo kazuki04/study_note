@@ -1,7 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# num = 202102
+
+# 100.times do |i|
+#   Calendar.create(year_month: num + 1)
+#   num
+# end
+
+
+
+# if 
+Calendar.create(id: 1, year: 2020, month: 12)
+Calendar.create(id: 2, year: 2021, month: 01)
+Calendar.create(id: 3, year: 2021, month: 02)
+Calendar.create(id: 4, year: 2021, month: 03)
+Calendar.create(id: 5, year: 2021, month: 04)
+Calendar.create(id: 6, year: 2021, month: 05)

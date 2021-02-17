@@ -12,14 +12,16 @@
       <input type="text" id="search_input">
     </form>
   </div>
-  <div class="search_icon">
-    <i class="fas fa-search"></i>
-  </div>
-  <%= link_to new_note_path do %>
-    <div class="pen_icon">
-      <i class="fas fa-pencil-alt"></i>
+  <div class="header_icon_field">
+    <div class="search_icon">
+      <i class="fas fa-search"></i>
     </div>
-  <% end %>
+    <%= link_to new_note_path do %>
+      <div class="pen_icon">
+        <i class="fas fa-pencil-alt"></i>
+      </div>
+    <% end %>
+  </div>
   <div class="account">
     <%= current_user.nickname %>
   </div>

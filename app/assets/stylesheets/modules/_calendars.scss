@@ -31,6 +31,7 @@
         width: 500px;
         border: 1px solid gray;
         border-radius:10px;
+        display: none;
         #search_input{
           height: 35px;
           width: 450px;
@@ -40,18 +41,17 @@
         }
       }
     }
-    .search_icon{
+    .header_icon_field{
+      display: flex;
+      align-items: center;
       font-size: larger;
-      position: absolute;
-      top: 20px;
-      right: 280px;
-    }
-    .pen_icon{
-      color: black;
-      font-size: larger;
-      position: absolute;
-      top: 20px;
-      right: 230px;
+      .search_icon{
+        @include btn;
+        margin-right: 35px;
+      }
+      .pen_icon{
+        color: black;
+      }
     }
     .account{
       margin-right: 100px;
@@ -64,8 +64,6 @@
     height: calc(100vh - 70px);
     border-top: 1px solid $border_color;
     background-color: #ffff;
-    // position: relative;
-    // top: 70px;
     .side{
       height: 100%;
       width: 500px;
@@ -77,6 +75,11 @@
           border: 1px solid $theme_color;
           border-radius: 25px;
           font-weight: 600;
+          transition: 0.3s;
+        }
+        .new_note_btn:hover {
+          background: rgb(131, 209, 250);
+          color: white;
         }
       }
     }
@@ -85,14 +88,81 @@
       width: 100%;
       border-left: 1px solid $border_color;
       overflow: scroll;
-      .main_header{
+      .month_field{
+        margin-left: 50px;
+        margin-top: 50px;
+        display: flex;
+        font-size: xx-large; 
+        .arrow-left{
+          color: #7b7b7bc7;
+          margin-right: 10px;
+        }
+        .arrow-right{
+          color: #7b7b7bc7;
+          margin-left: 4px;
+        }
+      }
+      .main_top{
         display: flex;
         justify-content: space-between;
         .goal_field{
           width: 60%;
-          margin: 70px;
-          .title_goal{
-            @include title;
+          margin: 50px;
+          .goal_header{
+            display: flex;
+            .title_goal{
+              margin-right: 15px;
+              margin-bottom: 13px;
+              @include title;
+            }
+            .fa-edit{
+              @include btn;
+            }
+          }
+          #goal_form{
+            width: 70%;
+            display: none;
+            #input_field{
+              .input_item{
+                display: flex;
+                align-items: center;
+                .goal_input{
+                  height: 20px;
+                  width: 70%;
+                }
+                .goal_add_btn{
+                  margin-left: 7px;
+                }
+                .goal_delete_btn{
+                  margin-left: 7px; 
+                  color: rgb(252, 61, 61);
+                  font-weight: bold;
+                  outline: none ;
+                  @include btn;
+                }
+              }
+            }
+            .btn_field{
+              margin-top: 10px;
+              #add_btn{
+                color: $theme_color;
+                font-weight: bold;
+                border-radius: 10px;
+                background-color: white;
+                border: 2px solid $theme_color;
+                outline: none;
+                @include btn;
+              }
+              #submit_btn{
+                color: $theme_color;
+                font-weight: bold;
+                border-radius: 10px;
+                background-color: white;
+                border: 2px solid $theme_color;
+                outline: none;
+                @include btn;
+              }
+            }
           }
           .goal_list{
             margin-top: 20px;
@@ -105,7 +175,7 @@
         }
         .study_time_field{
           width: 40%;
-          margin-top: 70px;
+          margin-top: 50px;
           margin-right: 170px;
           font-size: x-large;
           .study_time_title{
