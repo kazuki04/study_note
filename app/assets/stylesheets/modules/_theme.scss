@@ -5,3 +5,7 @@ $border_color: rgb(215, 215, 215);
   font-size: xx-large;
   font-family: Georgia, serif;
 }
+
+@mixin btn {
+  cursor: pointer;
+}

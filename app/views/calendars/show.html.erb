@@ -20,14 +20,16 @@
           </div>
           <% if @goal.id == nil %>
             <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>
-                <div class="input_field">
+                <div id="input_field">
                   <div class="input_item">
-                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{0}", class:"goal_input" %> 
-                    <%= link_to "追加", "#", id:"add_btn_#{0}", class:"goal_add_btn", data:{index: 0} %>
-                    <%= link_to "削除", "#", id:"delete_btn_#{0}", class:"goal_delete_btn", data:{index: 0} %>
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_0", class:"goal_input", data:{index: 0} %> 
+                    <%= link_to "削除", "#", id:"delete_btn_0", class:"goal_delete_btn", data:{index: 0} %>
                   </div>
                 </div>
-              <%= f.submit "保存する", id:"submit_btn"%>
+                <div class="btn_field">
+                  <button id="add_btn">追加</button>
+                  <%= f.submit "保存する", id:"submit_btn"%>
+              </div>
             <% end %>
           <% else %>
             <%= form_with url: calendar_goal_path(@selected_month), method: :PATCH, id:"goal_form", local: true do |f| %>
@@ -35,13 +37,15 @@
                 <% @goals.each_with_index do |goal, i| %>
                   <div class="input_item">
                     <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name, data:{index: i} %>
-                    <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+                    <%#= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
+                    <%= content_tag(:p,"削除", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i}) %>
                   </div>
                 <% end %>
-                </div>
-              <%#= link_to "#", "", id:"add_btn", class:"goal_add_btn" %>
-              <button id="add_btn">追加</button>
-              <%= f.submit "保存する", id:"submit_btn"%>
+              </div>
+              <div class="btn_field">
+                <button id="add_btn">追加</button>
+                <%= f.submit "保存する", id:"submit_btn"%>
+              </div>
             <% end %> 
 
           <% end %>

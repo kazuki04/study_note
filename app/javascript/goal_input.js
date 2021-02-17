@@ -9,7 +9,6 @@ $(function(){
     return html;
   }
 
-
   $("#add_btn").on("click",  function(e) {
     e.preventDefault()
     if($("#input_field").children().length == 10){
@@ -18,6 +17,7 @@ $(function(){
     
     last_input = $(".goal_input:last")
     last_index = last_input.data("index")
+    
     if($(`#goal_${last_index}`).val() != ""){
       $("#input_field").append(build_input(last_index + 1))
     }
