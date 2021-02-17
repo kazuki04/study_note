@@ -8,4 +8,5 @@ class Note < ApplicationRecord
   end
 
   belongs_to :user
+  belongs_to :note
 end
