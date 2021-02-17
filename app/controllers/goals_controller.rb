@@ -2,19 +2,18 @@ class GoalsController < ApplicationController
   
   def create_goal
     selected_month = Calendar.find(params[:calendar_id])
-    goals = selected_month.goals
+    @goals = selected_month.goals
 
     update_array = []
 
     goal_params()
-    if goals.empty?
+    if @goals.empty?
       @goal_parameters.each do |goal_parameter|
         goal_name = goal_parameter[1].require(:value)
       Goal.create(goal_name: goal_name, calendar_id: params[:calendar_id])
       end
     else
-      goals.each do |goal|
-        binding.pry
+      @goals.each do |goal|
         # num = i + 1
         goal.destroy
         # goal = Goal.create(goal_name: params.require(:goal_params)[:"#{num}"][:value], calendar_id: selected_month.id )
@@ -25,15 +24,14 @@ class GoalsController < ApplicationController
         if parameter[0] != "0"
           goal = Goal.create(goal_name: parameter[1][:value], calendar_id: selected_month.id ) 
           update_array.push(goal)
-          binding.pry
         end
       end
 
     end
 
     goal_name_array = []
-    if goals.empty? 
-      goals.each do |goal|
+    if @goals.empty? 
+      @goals.each do |goal|
         goal_name_array.push(goal.goal_name)
       end
     else
@@ -52,8 +50,8 @@ class GoalsController < ApplicationController
 
   def update
     @selected_month = Calendar.find(params[:id])
-    goals = @selected_month.goals
-    goals.each_with_index do |goal, i|
+    @goals = @selected_month.goals
+    @goals.each_with_index do |goal, i|
       goal_name = params.require(:goal)[:goal_names][i] 
         goal.update(goal_name: goal_name)
       end

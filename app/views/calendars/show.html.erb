@@ -18,7 +18,7 @@
             <h1 class="title_goal">Goal</h1>
             <i class="fas fa-edit"></i>
           </div>
-          <% if @goals[0][:id] == nil %>
+          <% if @goal.id == nil %>
             <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>
                 <div class="input_field">
                   <div class="input_item">
@@ -30,16 +30,17 @@
               <%= f.submit "保存する", id:"submit_btn"%>
             <% end %>
           <% else %>
-              <%= form_with url: calendar_goal_path(@selected_month), method: :PATCH, id:"goal_form", local: true do |f| %>
-              <% @goals.each_with_index do |goal, i| %>
-                <div class="input_field">
+            <%= form_with url: calendar_goal_path(@selected_month), method: :PATCH, id:"goal_form", local: true do |f| %>
+              <div id="input_field">
+                <% @goals.each_with_index do |goal, i| %>
                   <div class="input_item">
-                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name %> 
-                    <%= link_to "追加", "#", id:"add_btn_#{i}", class:"goal_add_btn", data:{index: i} %>
+                    <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name, data:{index: i} %>
                     <%= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
                   </div>
+                <% end %>
                 </div>
-              <% end %>
+              <%#= link_to "#", "", id:"add_btn", class:"goal_add_btn" %>
+              <button id="add_btn">追加</button>
               <%= f.submit "保存する", id:"submit_btn"%>
             <% end %> 
 

@@ -24,11 +24,11 @@ class CalendarsController < ApplicationController
     else
       @next_month = Calendar.find(@selected_month.id + 1)
     end
-
     if @selected_month.goals.empty?
-      @goals = @selected_month.goals.new
+      @goal = @selected_month.goals.new
     else
       @goals = @selected_month.goals
+      @goal = @goals[0]
     end
   end
 end
