@@ -26,7 +26,7 @@ class CalendarsController < ApplicationController
     end
 
     if @selected_month.goals.empty?
-      @goal = @selected_month.goals.new
+      @goals = @selected_month.goals.new
     else
       @goals = @selected_month.goals
     end
