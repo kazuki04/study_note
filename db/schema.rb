@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 2021_02_14_012847) do
     t.text "body", null: false
     t.date "written_day", null: false
     t.bigint "user_id"
+    t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["calendar_id"], name: "index_notes_on_calendar_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
 

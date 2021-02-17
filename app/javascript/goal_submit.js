@@ -7,16 +7,13 @@ $(function(){
     return html;
   }
 
-  $("#submit_btn").on("click", function(e){
+  $("#goal_submit_btn").on("click", function(e){
     e.preventDefault();
     const path = location.pathname
     const calendar_id = path.replace("/calendars/", '');
 
     const params = $("#goal_form").serializeArray()
     const goal_params = params.slice(1)
-    console.log(params)
-    console.log(goal_params)
-
     $.ajax({
       url: `/calendar/${calendar_id}/goals`,
       type: 'GET',

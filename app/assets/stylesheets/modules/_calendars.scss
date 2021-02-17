@@ -1,10 +1,9 @@
 .body{
   height: 100vh;
   header{
+    border-bottom: 1px solid #d7d7d7;
     height: 70px;
     width: 100%;
-    // position: fixed;
-    // z-index: 1;
     display: flex;
     justify-content: space-between;
     background-color: #ffff;
@@ -62,7 +61,6 @@
 
   .wrapper{
     height: calc(100vh - 70px);
-    border-top: 1px solid $border_color;
     background-color: #ffff;
     .side{
       height: 100%;
@@ -153,7 +151,7 @@
                 outline: none;
                 @include btn;
               }
-              #submit_btn{
+              #goal_submit_btn{
                 color: $theme_color;
                 font-weight: bold;
                 border-radius: 10px;
@@ -201,11 +199,13 @@
           margin-left: 20px;
           font-size: large;
           .study_list_item{
+            color: black;
             width: 100%;
             padding: 10px;
             margin-bottom: 50px;
             border: 1px solid $border_color;
             box-shadow: 2px 2px 4px gray;
+            transition: 0.3s;
             .study_info{
               display: flex;
               justify-content: space-between;
@@ -221,6 +221,9 @@
             .study_excerpt{
               margin-top: 20px;
             }
+          }
+          .study_list_item:hover{
+            background-color: rgb(237, 237, 237);
           }
         }
       }

@@ -8,7 +8,7 @@
         </div>
         <% if user_signed_in? %>
           <div class="note_edit_btn">
-            <%= link_to "編集する", edit_note_path %>
+            <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
           </div>
         <% end %>
       </div>

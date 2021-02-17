@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
   resources :calendars do
     resources :goals
+    resources :notes, only:[:new, :create, :show, :edit, :update]
   end
   get '/calendar/:calendar_id/goals', to: 'goals#create_goal'
-  resources :notes, only:[:new, :create, :show, :edit, :update]
 end
