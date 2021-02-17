@@ -1,5 +1,5 @@
   <div class="form_field">
-      <%= form_with model: note, id:"note_form", local: true do |f| %>
+      <%= form_with model:[@selected_month ,note], id:"note_form", local: true do |f| %>
         <div class="date">
           <%= "#{today_date.year}年#{today_date.month}月#{today_date.day}日" %>
         </div>

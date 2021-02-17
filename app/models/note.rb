@@ -8,5 +8,5 @@ class Note < ApplicationRecord
   end
 
   belongs_to :user
-  belongs_to :note
+  belongs_to :calendar
 end
