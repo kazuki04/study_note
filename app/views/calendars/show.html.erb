@@ -37,7 +37,6 @@
                 <% @goals.each_with_index do |goal, i| %>
                   <div class="input_item">
                     <%= f.text_field :name, name: "goal[goal_names][]", id:"goal_#{i}", class:"goal_input", value: goal.goal_name, data:{index: i} %>
-                    <%#= link_to "削除", "#", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i} %>
                     <%= content_tag(:p,"削除", id:"delete_btn_#{i}", class:"goal_delete_btn", data:{index: i}) %>
                   </div>
                 <% end %>
@@ -72,6 +71,7 @@
         <h1 class="study_field_title">Study List</h2>
         <ul class="study_list">
           <% @notes.each do |note|%>
+          <%= link_to calendar_note_path(@selected_month,note) do %>
           <li class="study_list_item">
             <div class="study_info">
               <div class="study_list_item_date">
@@ -89,6 +89,7 @@
               <p><%= note.excerpt %></p>
             </div>
           </li>
+          <% end %>
           <% end %>
 
         </ul>

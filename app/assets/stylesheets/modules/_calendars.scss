@@ -201,11 +201,13 @@
           margin-left: 20px;
           font-size: large;
           .study_list_item{
+            color: black;
             width: 100%;
             padding: 10px;
             margin-bottom: 50px;
             border: 1px solid $border_color;
             box-shadow: 2px 2px 4px gray;
+            transition: 0.3s;
             .study_info{
               display: flex;
               justify-content: space-between;
@@ -221,6 +223,9 @@
             .study_excerpt{
               margin-top: 20px;
             }
+          }
+          .study_list_item:hover{
+            background-color: rgb(237, 237, 237);
           }
         }
       }

@@ -21,6 +21,7 @@ class NotesController < ApplicationController
   end
 
   def show
+    @selected_month= Calendar.find(params[:calendar_id]) 
   end
 
   def edit

@@ -31,7 +31,7 @@ class CalendarsController < ApplicationController
       @goal = @goals[0]
     end
 
-    @notes = @selected_month.notes
+    @notes = @selected_month.notes.includes(:user, :calendar)
 
   end
 end
