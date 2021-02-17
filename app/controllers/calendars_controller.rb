@@ -33,6 +33,5 @@ class CalendarsController < ApplicationController
 
     @notes = @selected_month.notes
 
-
   end
 end

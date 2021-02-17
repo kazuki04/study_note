@@ -71,13 +71,14 @@
       <div class="study_field">
         <h1 class="study_field_title">Study List</h2>
         <ul class="study_list">
+          <% @notes.each do |note|%>
           <li class="study_list_item">
             <div class="study_info">
               <div class="study_list_item_date">
-                <p>2月1日</p>
+                <p><%= note.written_day%></p>
               </div>
               <div class="study_hightlight">
-                <p>HL:セクション7まで</p>
+                <p>HL:<%= note.highlight%></p>
               </div>
               <div class="study_time">
                 <p>Study Time:5時間</p>
@@ -85,27 +86,11 @@
             </div>
 
             <div class="study_excerpt">
-              <p>Golangの基礎文法</p>
+              <p><%= note.excerpt %></p>
             </div>
           </li>
+          <% end %>
 
-          <li class="study_list_item">
-            <div class="study_info">
-              <div class="study_list_item_date">
-                <p>2月1日</p>
-              </div>
-              <div class="study_hightlight">
-                <p>HL:セクション7まで</p>
-              </div>
-              <div class="study_time">
-                <p>Study Time:5時間</p>
-              </div>
-            </div>
-
-            <div class="study_excerpt">
-              <p>Golangの基礎文法</p>
-            </div>
-          </li>
         </ul>
       </div>
 
