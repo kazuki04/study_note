@@ -7,7 +7,7 @@ $(function(){
     return html;
   }
 
-  $("#submit_btn").on("click", function(e){
+  $("#goal_submit_btn").on("click", function(e){
     e.preventDefault();
     const path = location.pathname
     const calendar_id = path.replace("/calendars/", '');
