@@ -14,9 +14,6 @@ $(function(){
 
     const params = $("#goal_form").serializeArray()
     const goal_params = params.slice(1)
-    console.log(params)
-    console.log(goal_params)
-
     $.ajax({
       url: `/calendar/${calendar_id}/goals`,
       type: 'GET',
