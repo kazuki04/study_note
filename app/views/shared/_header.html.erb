@@ -23,6 +23,8 @@
     <% end %>
   </div>
   <div class="account">
-    <%= current_user.nickname %>
+    <%= link_to edit_user_registration_path do%>
+      <p class="user_nickname"><%= current_user.nickname %></p>
+    <% end %>
   </div>
 </header>

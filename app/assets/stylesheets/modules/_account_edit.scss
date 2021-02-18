@@ -1,0 +1,92 @@
+.user_account_side_bar{
+  height: 100%;
+  background-color: antiquewhite;
+  width: 20%;
+}
+
+.user_form_body{
+  height: 100%;
+  width: 45%;
+  background-color: #ffff;
+  .profile_main_title{
+    font-size: x-large;
+    padding:30px;
+  }
+  .user_account_form{
+    #edit_user{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .user_avatar{
+        height: 190px;
+        border-top: 1px solid $border_color;
+        .profile_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        .sample_avatar_icon{
+          height: 120px;
+          margin-left: 40px;
+          margin-top: 20px;
+          border: 1px solid $border_color;
+          border-radius: 60px;
+        }
+      }
+      .nickname_field{
+        height: 120px;
+        border-top: 1px solid $border_color;
+        .nickname_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        #user_nickname{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px;
+        }
+      }
+      .email_field{
+        height: 120px;
+        border-top: 1px solid $border_color;
+        .email_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        #user_email{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px; 
+        }
+      }
+      .password_field{
+        border-top: 1px solid $border_color;
+        .password_title{
+          margin-left: 15px;
+          margin-top: 15px; 
+        } 
+        #user_current_password{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px;  
+        }
+      }
+      .actions{
+        height: 150px;
+        margin-top: 50px;
+        margin-left: 50px;
+        #submit_btn{
+          height: 30px;
+          width: 15%;
+          margin: 10px  30px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          color: #ffff;
+          background-color: $theme_color
+        }
+      }
+    }
+  }
+}

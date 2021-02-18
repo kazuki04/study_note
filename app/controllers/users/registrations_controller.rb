@@ -34,6 +34,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def update
+    # session["devise.update_params"] = params[:user]
+    # session["devise.user"] = {user: @user.attributes}
+    # session["devise.user.id"] = @user.id
+    # render :password_confirmation
+    super
+  end
+
+  def password_confirmation
+  end
+  
+  # def confirm_update
+  #   @user = User.find(session["devise.user.id"])
+  #   session["devise.update_params"]["password"] = params[:user][:password]
+  #   @user.update(session["devise.update_params"])
+  #   redirect_to  edit_user_registration_path
+  # end
+
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
   # in to be expired now. This is useful if the user wants to
