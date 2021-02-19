@@ -24,12 +24,60 @@
           margin-left: 15px;
           margin-top: 15px;
         }
-        .sample_avatar_icon{
-          height: 120px;
-          margin-left: 40px;
-          margin-top: 20px;
-          border: 1px solid $border_color;
-          border-radius: 60px;
+        .user_avatar_field{
+          display: flex;
+          #preview_field{
+            #avatar_img{
+              margin-left: 50px;
+            }
+          }
+          .select_button{
+            margin-top: 15px;
+            margin-left: 130px;
+            .select{
+              height: 27px;
+              width: 150px;
+              line-height: initial;
+              display: flex;
+              justify-content: space-between;
+              background-color: #ececec;
+              cursor: pointer;
+              background-image: -webkit-linear-gradient(
+                                rgba(255,255,255,.3) 0%,
+                                transparent 50%,
+                                transparent 50%,
+                                rgba(0,0,0,.1) 100%);
+              .select_arrow{
+                padding-left: 6px;
+                margin-right: 7px;
+                color: #908c8c;
+                border-left: 1px solid #b7b7b7;
+              }
+            }
+            .select_list{
+              display: none;
+              width: 150px;
+              box-shadow: 1px 1px 5px gray;
+              .select_item{
+                height: 25px;
+                padding-left: 5px;
+                font-size: smaller;
+                line-height: initial;
+                background-color: #e4e4e4a6;
+                transition: 0.3s;
+              }
+              .select_item:hover{
+                background-color: #bdbbbb;
+              }
+            }
+          }
+          .sample_avatar_icon{
+            height: 120px;
+            margin-left: 40px;
+            margin-top: 20px;
+            border: 1px solid $border_color;
+            border-radius: 60px;
+          }
         }
       }
       .nickname_field{
