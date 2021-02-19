@@ -11,7 +11,6 @@ class NotesController < ApplicationController
   def create
     @selected_month= Calendar.find(params[:calendar_id])
     @note = Note.new(note_params)
-    binding.pry
     if @note.save
       redirect_to root_path
     else
