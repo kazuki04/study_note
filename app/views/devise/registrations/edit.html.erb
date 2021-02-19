@@ -2,7 +2,11 @@
 <div class="user_account_side_bar">
 
 </div>
+
   <div class="user_form_body">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
     <h2 class="profile_main_title">プロフィール</h2>
 
     <div class="user_account_form">
@@ -13,19 +17,20 @@
           <div class="user_avatar_field">
             <div id="preview_field">
               <% if @user.avatar.attached? %>
-                <%= image_tag @user.avatar.variant(resize: "100x100"), id:"avatar_img" %>
+                <%= image_tag @user.avatar, id:"avatar_img" %>
               <% else %>
                 <%= image_tag('avatar_icon.png', class: "sample_avatar_icon") unless @user.avatar.attached? %>
               <% end %>
             </div>
+            <%= hidden_field_tag :img_check_is, true %>
             <div class="select_button">
               <div class="select">
                 <div>写真の編集</div>
                 <div class="select_arrow">&#9662;</div>
               </div>
               <ul class="select_list">
-                <li class="select_item">アップロード</li>
-                <li class="select_item">削除</li>
+                <li id="avatar_upload_btn" class="select_item">アップロード</li>
+                <li id="avatar_delete_btn" class="select_item">削除</li>
               </ul>
             </div>
           </div>
@@ -41,7 +46,7 @@
         </div>
         <div class="password_field">
           <h1 class="password_title">パスワード</h1>
-          <%= f.password_field :current_password, placeholder: "パスワード", autocomplete: "new-password", class: "field"%>
+          <%= f.password_field :current_password, placeholder: "現在のパスワードを入力してください", autocomplete: "new-password", class: "field"%>
         </div>
         <div class="actions">
           <%= f.submit "変更を保存" , id:"submit_btn" %>

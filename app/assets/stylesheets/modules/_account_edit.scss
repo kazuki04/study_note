@@ -18,7 +18,7 @@
       display: flex;
       flex-direction: column;
       .user_avatar{
-        height: 190px;
+        height: 230px;
         border-top: 1px solid $border_color;
         .profile_title{
           margin-left: 15px;
@@ -27,16 +27,26 @@
         .user_avatar_field{
           display: flex;
           #preview_field{
+            height: 150px;
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 45px;
+            border: 3px solid #9e9e9e;
+            border-radius: 3px;
             #avatar_img{
-              margin-left: 50px;
+              height: 150px;
+              width: 150px;
             }
           }
           .select_button{
-            margin-top: 15px;
-            margin-left: 130px;
+            margin-top: 20px;
+            margin-left: 50px;
             .select{
-              height: 27px;
+              height: 25px;
               width: 150px;
+              font-size: 15px;
+              padding-left: 5px;
+              border-radius: 3px;
               line-height: initial;
               display: flex;
               justify-content: space-between;
@@ -72,12 +82,12 @@
             }
           }
           .sample_avatar_icon{
-            height: 120px;
-            margin-left: 40px;
-            margin-top: 20px;
-            border: 1px solid $border_color;
-            border-radius: 60px;
+            height: 150px;
+            width: 150px;
           }
+        }
+        #avatar_input{
+          display: none;
         }
       }
       .nickname_field{
