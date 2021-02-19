@@ -25,13 +25,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    img_check_is = params.require(:img_check_is) 
+    if img_check_is == "false"
+      @user.avatar.purge
+    end
+
+    @user.update(user_params)
+    if @user.valid?
+      flash[:notice] = "アカウント情報を保存しました"
+      redirect_to  edit_user_registration_path
+    else
+      render :edit
+    end
+  end
+  
+  def user_params
+    params.require(:user).permit(:avatar, :nickname, :email)
+  end
 
   # DELETE /resource
   # def destroy
   #   super
+  # end
+
+  # def confirm_update
+  #   @user = User.find(session["devise.user.id"])
+  #   session["devise.update_params"]["password"] = params[:user][:password]
+  #   @user.update(session["devise.update_params"])
+  #   redirect_to  edit_user_registration_path
   # end
 
   # GET /resource/cancel

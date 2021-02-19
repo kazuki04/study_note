@@ -1,0 +1,150 @@
+.user_account_side_bar{
+  height: 100%;
+  background-color: antiquewhite;
+  width: 20%;
+}
+
+.user_form_body{
+  height: 100%;
+  width: 45%;
+  background-color: #ffff;
+  .profile_main_title{
+    font-size: x-large;
+    padding:30px;
+  }
+  .user_account_form{
+    #edit_user{
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .user_avatar{
+        height: 230px;
+        border-top: 1px solid $border_color;
+        .profile_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        .user_avatar_field{
+          display: flex;
+          #preview_field{
+            height: 150px;
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 45px;
+            border: 3px solid #9e9e9e;
+            border-radius: 3px;
+            #avatar_img{
+              height: 150px;
+              width: 150px;
+            }
+          }
+          .select_button{
+            margin-top: 20px;
+            margin-left: 50px;
+            .select{
+              height: 25px;
+              width: 150px;
+              font-size: 15px;
+              padding-left: 5px;
+              border-radius: 3px;
+              line-height: initial;
+              display: flex;
+              justify-content: space-between;
+              background-color: #ececec;
+              cursor: pointer;
+              background-image: -webkit-linear-gradient(
+                                rgba(255,255,255,.3) 0%,
+                                transparent 50%,
+                                transparent 50%,
+                                rgba(0,0,0,.1) 100%);
+              .select_arrow{
+                padding-left: 6px;
+                margin-right: 7px;
+                color: #908c8c;
+                border-left: 1px solid #b7b7b7;
+              }
+            }
+            .select_list{
+              display: none;
+              width: 150px;
+              box-shadow: 1px 1px 5px gray;
+              .select_item{
+                height: 25px;
+                padding-left: 5px;
+                font-size: smaller;
+                line-height: initial;
+                background-color: #e4e4e4a6;
+                transition: 0.3s;
+              }
+              .select_item:hover{
+                background-color: #bdbbbb;
+              }
+            }
+          }
+          .sample_avatar_icon{
+            height: 150px;
+            width: 150px;
+          }
+        }
+        #avatar_input{
+          display: none;
+        }
+      }
+      .nickname_field{
+        height: 120px;
+        border-top: 1px solid $border_color;
+        .nickname_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        #user_nickname{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px;
+        }
+      }
+      .email_field{
+        height: 120px;
+        border-top: 1px solid $border_color;
+        .email_title{
+          margin-left: 15px;
+          margin-top: 15px;
+        }
+        #user_email{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px; 
+        }
+      }
+      .password_field{
+        border-top: 1px solid $border_color;
+        .password_title{
+          margin-left: 15px;
+          margin-top: 15px; 
+        } 
+        #user_current_password{
+          height: 30px;
+          width: 300px;
+          margin-left: 50px;
+          margin-top: 30px;  
+        }
+      }
+      .actions{
+        height: 150px;
+        margin-top: 50px;
+        margin-left: 50px;
+        #submit_btn{
+          height: 30px;
+          width: 15%;
+          margin: 10px  30px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          color: #ffff;
+          background-color: $theme_color
+        }
+      }
+    }
+  }
+}
