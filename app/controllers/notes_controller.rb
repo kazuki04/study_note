@@ -25,11 +25,12 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note_form = Note.find(params[:id])
+    @note_form = NoteForm.new(note: @note)
   end
 
   def update
-    if @note.update(note_params) 
+    @note_form = NoteForm.new(note_params, note: @note)
+    if @note_form.save
       redirect_to root_path
     else
       render :edit
@@ -38,7 +39,7 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note_form).permit(:written_day, :highlight, :tag_names, :excerpt, :body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
+    params.require(:note).permit(:written_day, :highlight, :tag_names, :excerpt, :body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
   end
   
   def set_selected_month
