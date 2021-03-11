@@ -1,18 +1,19 @@
 class NotesController < ApplicationController
-  before_action :set_selected_month, only: [:show, :edit, :update]
+  before_action :set_selected_month, only: [:new, :create, :show, :edit, :update]
   before_action :set_today_date, only: [:new, :create, :edit]
   before_action :set_note, only: [:show, :edit, :update]
   before_action :user_confirmation, only: [:edit, :update]
 
   def new
-    @selected_month= Calendar.find(params[:calendar_id])
-    @note = Note.new
+    # @note = Note.new
+    @note_form = NoteForm.new
   end
 
   def create
-    @selected_month= Calendar.find(params[:calendar_id])
-    @note = Note.new(note_params)
-    if @note.save
+    # @note = Note.new(note_params)
+    @note_form = NoteForm.new(note_params)
+
+    if @note_form.save
       redirect_to root_path
     else
       render :new
@@ -24,6 +25,7 @@ class NotesController < ApplicationController
   end
 
   def edit
+    @note_form = Note.find(params[:id])
   end
 
   def update
@@ -36,11 +38,11 @@ class NotesController < ApplicationController
 
   private
   def note_params
-    params.require(:note).permit(:written_day, :highlight, :excerpt, :body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
+    params.require(:note_form).permit(:written_day, :highlight, :tag_names, :excerpt, :body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
   end
   
   def set_selected_month
-    @selected_month= Calendar.find(params[:calendar_id]) 
+    @selected_month = Calendar.find(params[:calendar_id]) 
   end
 
   def set_today_date

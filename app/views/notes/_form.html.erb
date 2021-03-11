@@ -1,5 +1,23 @@
 <div class="form_field">
-    <%= form_with model:[@selected_month ,note], id:"note_form", local: true do |f| %>
+  <% if note_form.blank? %>
+    <%= form_with model:[@selected_month ,note_form], url: calendar_notes_path(@selected_month), id:"note_form", local: true do |f| %>
+      <div class="date">
+          <%= "#{today_date.year}年#{today_date.month}月#{today_date.day}日" %>
+      </div>
+
+      <%= f.hidden_field :written_day, value: today_date %>
+      <%= f.text_field :highlight, class:"note_field", placeholder: "highlight" %>
+      <%= f.text_field :excerpt, class:"note_field", placeholder: "excerpt" %>
+      <%= f.text_field :tag_names, class:"note_field", placeholder: ",で区切り、タグを最大5つまで登録できます" %>
+      <%= f.text_area :body, class:"note_field_body" %>
+      
+      <div class="btn">
+        <%= f.submit id:"note_submit_btn" %>
+      </div>
+    <% end %>
+
+  <% else %>
+    <%= form_with model:[@selected_month ,note_form], url: calendar_note_path(@selected_month), id:"note_form", local: true do |f| %>
       <div class="date">
         <%= "#{today_date.year}年#{today_date.month}月#{today_date.day}日" %>
       </div>
@@ -7,10 +25,12 @@
       <%= f.hidden_field :written_day, value: today_date %>
       <%= f.text_field :highlight, class:"note_field", placeholder: "highlight" %>
       <%= f.text_field :excerpt, class:"note_field", placeholder: "excerpt" %>
+      <%= f.text_field :tag_names, class:"note_field", placeholder: ",で区切り、タグを最大5つまで登録できます" %>
       <%= f.text_area :body, class:"note_field_body" %>
       
       <div class="btn">
         <%= f.submit id:"note_submit_btn" %>
       </div>
     <% end %>
+  <% end %>
 </div>
