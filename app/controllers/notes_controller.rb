@@ -5,12 +5,10 @@ class NotesController < ApplicationController
   before_action :user_confirmation, only: [:edit, :update]
 
   def new
-    # @note = Note.new
     @note_form = NoteForm.new
   end
 
   def create
-    # @note = Note.new(note_params)
     @note_form = NoteForm.new(note_params)
 
     if @note_form.save

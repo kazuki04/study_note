@@ -21,13 +21,6 @@ class NoteForm
     note
   end
 
-  # def save
-  #   note = Note.new(written_day: written_day, highlight: highlight, excerpt: excerpt, body: body, user_id: user_id, calendar_id: calendar_id)
-  #   set_tag_list()
-  #   note.tags_save(@tag_list)
-  #   note.save
-  # end
-
   def save
     set_tag_list()
     tags = @tag_list.map{|tag_name| Tag.where(tag_name: tag_name).first_or_create}
