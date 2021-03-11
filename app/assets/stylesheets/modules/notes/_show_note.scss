@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   .note_info{
-    width: 60%;
+    width: 50%;
     padding: 20px;
     margin-top: 30px;
     display: flex;
@@ -45,5 +45,18 @@
         }
       }
     }
+  }
+}
+.btn-field{
+  padding: 20px;
+  display: flex;
+  .top-btn{
+    width: 5%;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    color: #ffff;
+    background-color: $theme_color;
+    border-radius: 3px;
   }
 }

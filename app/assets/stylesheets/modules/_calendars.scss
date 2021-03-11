@@ -1,5 +1,4 @@
 .body{
-  height: 100vh;
   header{
     border-bottom: 1px solid #d7d7d7;
     height: 70px;
@@ -47,9 +46,19 @@
       .search_icon{
         @include btn;
         margin-right: 35px;
+        padding: 8px;
+      }
+      .search_icon:hover{
+        background-color: #eaeaea;
+        border-radius: 50px;
       }
       .pen_icon{
         color: black;
+        padding: 8px;
+      }
+      .pen_icon:hover{
+        background-color: #eaeaea;
+        border-radius: 50px;
       }
     }
     .account{
@@ -129,8 +138,15 @@
               margin-bottom: 13px;
               @include title;
             }
-            .fa-edit{
-              @include btn;
+            .edit_pen{
+              .fa-edit{
+                @include btn;
+                padding: 8px;
+              }
+              .fa-edit:hover{
+                background-color: #eaeaea;
+                border-radius: 50px;
+              }
             }
           }
           #goal_form{
@@ -138,6 +154,7 @@
             display: none;
             #input_field{
               .input_item{
+                margin-bottom: 10px;
                 display: flex;
                 align-items: center;
                 .goal_input{
