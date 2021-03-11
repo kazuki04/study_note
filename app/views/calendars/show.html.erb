@@ -10,13 +10,21 @@
 
     <div class="main">
       <div class="month_field">
-        <%= link_to "<", calendar_path(@last_month), class:"arrow-left" %><h1 class="this_month"><%= "#{@selected_month.month}月" %></h1><%= link_to ">", calendar_path(@next_month), class:"arrow-right" %>
+        <%= link_to  calendar_path(@last_month), class:"arrow-left" do%>
+          &lt;
+        <% end %>
+        <h1 class="this_month"><%= "#{@selected_month.month}月" %></h1>
+        <%= link_to calendar_path(@next_month), class:"arrow-right" do %>
+          <p>></p>
+        <% end %>
       </div>
       <div class="main_top">
         <div class="goal_field">
           <div class="goal_header">
             <h1 class="title_goal">Goal</h1>
-            <i class="fas fa-edit"></i>
+            <div class="edit_pen">
+              <i class="fas fa-edit"></i>
+            </div>
           </div>
           <% if @goal.id == nil %>
             <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>

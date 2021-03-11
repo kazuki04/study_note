@@ -30,8 +30,8 @@ class CalendarsController < ApplicationController
       @goals = @selected_month.goals
       @goal = @goals[0]
     end
-
-    @notes = @selected_month.notes.includes(:user, :calendar)
+    
+    @notes = Note.where(calendar_id: @selected_month.id, user_id: current_user.id)
 
   end
 end

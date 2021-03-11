@@ -4,11 +4,12 @@
   justify-content: center;
   #note_form{
     width: 60%;
-    margin-top: 30px;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     overflow: scroll;
     .date{
+      margin-bottom: 10px;
       font-size: larger;
     }
     .note_field{

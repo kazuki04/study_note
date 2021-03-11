@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :notes
   has_many :sns_credentials
+  has_many :golas
   has_one_attached :avatar
 
   def self.from_omniauth(auth_info)

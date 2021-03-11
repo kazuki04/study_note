@@ -43,9 +43,11 @@ ActiveRecord::Schema.define(version: 2021_02_17_083358) do
   create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "goal_name"
     t.bigint "calendar_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_id"], name: "index_goals_on_calendar_id"
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -91,5 +93,6 @@ ActiveRecord::Schema.define(version: 2021_02_17_083358) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "goals", "calendars"
+  add_foreign_key "goals", "users"
   add_foreign_key "sns_credentials", "users"
 end
