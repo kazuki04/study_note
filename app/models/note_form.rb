@@ -5,6 +5,7 @@ class NoteForm
   with_options presence: true do
     validates :highlight
     validates :excerpt
+    validates :set_tag_list
     validates :body
     validates :written_day
   end

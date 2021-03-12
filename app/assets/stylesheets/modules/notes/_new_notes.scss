@@ -19,6 +19,14 @@
       font-weight: bold;
       font-size: large;
     }
+    #search_tag_field{
+      position: relative;
+      #search_tag_list{
+        width: 150px;
+        position: absolute;
+        left: 7px;
+      }
+    }
     .note_field_body{
       height: 100%;
       padding : 10px;
