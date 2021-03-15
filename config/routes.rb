@@ -13,4 +13,5 @@ Rails.application.routes.draw do
     resources :notes, only:[:new, :create, :show, :edit, :update]
   end
   get '/calendar/:calendar_id/goals', to: 'goals#create_goal'
+  get '/incremental_search_tags', to: 'notes#incremental_search_tags'
 end
