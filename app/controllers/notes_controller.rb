@@ -56,7 +56,6 @@ class NotesController < ApplicationController
   end
 
   def search_note
-    
   end
 
   private
