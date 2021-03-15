@@ -52,8 +52,11 @@ class NotesController < ApplicationController
       end
     end
 
-
     render  json: {tags: tags}
+  end
+
+  def search_note
+    
   end
 
   private
