@@ -45,15 +45,14 @@ window.addEventListener("DOMContentLoaded", () => {
       all_input_val = document.getElementById("note_tag_names").value;
 
       tag_list.forEach(tag_object => {
-        console.log(all_input_val.match(tag_object.tag_name))
-
 
         const tagElement = document.createElement("div");
-        tagElement.style.padding = "6px"
-        tagElement.style.backgroundColor = "#e6e6e6"
-        tagElement.style.border = "thin solid #ffff"
-        tagElement.dataset.tag_id = tag_object.id
-        tagElement.innerHTML = tag_object.tag_name
+        tagElement.setAttribute("class", "tag_item");
+        tagElement.style.padding = "6px";
+        tagElement.style.backgroundColor = "#e6e6e6";
+        tagElement.style.border = "thin solid #ffff";
+        tagElement.dataset.tag_id = tag_object.id;
+        tagElement.innerHTML = tag_object.tag_name;
 
         search_tag_list.appendChild(tagElement)
         
@@ -64,7 +63,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
             entered_string = tag_input_field.value
           if(entered_string.match(",") == null) {
-            debugger
               tag_input_field.value = ""
               tag_input_field.value = clicked_tag_name + ","
           } else {
@@ -86,9 +84,6 @@ window.addEventListener("DOMContentLoaded", () => {
             tag_input_field.value = entered_string_plus_tag 
           }
 
-
-
-          
           this.remove();
 
         })
@@ -97,7 +92,5 @@ window.addEventListener("DOMContentLoaded", () => {
     .catch(() => {
 
     })
-
-
   });
 });

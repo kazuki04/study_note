@@ -50,3 +50,4 @@ class NoteForm
   end
 
 end
+
