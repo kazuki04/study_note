@@ -2,9 +2,10 @@ class CalendarsController < ApplicationController
   def index; end
 
   def show
-    today = Date.today
+    @today = Date.today
+    @note = Note.find_by(written_day: @today)
     if params[:id].nil?
-      @selected_month = Calendar.find_by(year: today.year, month: today.month)
+      @selected_month = Calendar.find_by(year: @today.year, month: @today.month)
       redirect_to calendar_path(@selected_month)
     else
       @selected_month = Calendar.find(params[:id])
@@ -13,7 +14,7 @@ class CalendarsController < ApplicationController
     @last_month = if @selected_month.id != 1
                     Calendar.find(@selected_month.id - 1)
                   else
-                    Calendar.find_by(year: today.year, month: today.month)
+                    Calendar.find_by(year: @today.year, month: @today.month)
                   end
 
     if (@selected_month.id + 1) == 7
