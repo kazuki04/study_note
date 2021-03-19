@@ -39,6 +39,7 @@
         }
       }
       #search_result{
+        height: 400px;
         width: 500px;
         padding: 7px;
         border: 1px solid gray;
@@ -47,6 +48,7 @@
         position: absolute;
         top: 65px;
         background-color: #efe8e8;
+        overflow: scroll;
       }
     }
     .header_icon_field{
