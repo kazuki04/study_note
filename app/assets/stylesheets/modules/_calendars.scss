@@ -5,6 +5,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    position: fixed;
     background-color: #ffff;
     .study_note_title{
       width: 380px;
@@ -98,6 +99,7 @@
 
   .wrapper{
     height: calc(100vh - 70px);
+    padding-top: 70px;
     background-color: #ffff;
     .side{
       height: 100%;
