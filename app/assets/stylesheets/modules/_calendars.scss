@@ -38,6 +38,16 @@
           outline: 0;
         }
       }
+      #search_result{
+        width: 500px;
+        padding: 7px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        display: none;
+        position: absolute;
+        top: 65px;
+        background-color: #efe8e8;
+      }
     }
     .header_icon_field{
       display: flex;

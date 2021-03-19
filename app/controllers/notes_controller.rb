@@ -56,6 +56,29 @@ class NotesController < ApplicationController
   end
 
   def search_note
+    search_input_val = params[:search_input_val]
+    return false if search_input_val.match(/^[ぁ-んー－]{1,1}$/) != nil
+
+    search_result = Note.where("body LIKE ?", "%#{search_input_val}%")
+    response_array = []
+    #noteのbodyの内容を抽出する→抽出したものを返す
+    search_target = 0
+    search_result.each do |note_record|
+      i = 0
+      note_record.body.each_char do |letter| 
+        # bodyの0番目から、入力された文字分の範囲で検索
+        if note_record.body.slice(i, search_input_val.length) == search_input_val
+          # bodyの中の何番目の文字かを変数に代入
+          search_target = i
+        end
+        i += 1
+      end
+      # search_target+search_input_val.length+10で検索ワードの文字数＋10
+      extracted_body = note_record.body.slice(search_target-10.. search_target+search_input_val.length+10)
+      response_array << {highlight: note_record.highlight, extracted_body: extracted_body, calendar_id: note_record.calendar_id, note_id: note_record.id}
+    end
+
+    render json: {response_array: response_array}
   end
 
   private
