@@ -1,51 +1,50 @@
 module NotesHelper
-    require "redcarpet"
-    require 'redcarpet/render_strip'
-    require "coderay"
+  require "redcarpet"
+  require 'redcarpet/render_strip'
+  require "coderay"
 
-    class HTMLwithCoderay < Redcarpet::Render::HTML
-        def block_code(code, language)
-            language = language.split(':')[0]
+  class HTMLwithCoderay < Redcarpet::Render::HTML
+    def block_code(code, language)
+      language = language.split(':')[0]
 
-            case language.to_s
-            when 'rb'
-                lang = 'ruby'
-            when 'yml'
-                lang = 'yaml'
-            when 'css'
-                lang = 'css'
-            when 'html'
-                lang = 'html'
-            when ''
-                lang = 'md'
-            else
-                lang = language
-            end
-            
-            html = CodeRay.scan(code, lang).div
-        end
+      lang = case language.to_s
+             when 'rb'
+               'ruby'
+             when 'yml'
+               'yaml'
+             when 'css'
+               'css'
+             when 'html'
+               'html'
+             when ''
+               'md'
+             else
+               language
+             end
+
+      html = CodeRay.scan(code, lang).div
     end
-    
-    def markdown(body)
+  end
 
-        # render_options = {
-        #     filter_html: true,
-        #     hard_wrap: true
-        # }
+  def markdown(body)
+    # render_options = {
+    #     filter_html: true,
+    #     hard_wrap: true
+    # }
 
-        extensions = {
-            autolink: true,
-            space_after_headers: true,
-            no_intra_emphasis: true,
-            fenced_code_blocks: true,
-            disable_indented_code_blocks: true,
-            tables: true,
-            strikethrough: true,
-            lax_spacing: true
-        }
+    extensions = {
+      autolink: true,
+      space_after_headers: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      disable_indented_code_blocks: true,
+      tables: true,
+      strikethrough: true,
+      lax_spacing: true
+    }
 
-        html_renderer = HTMLwithCoderay.new(hard_wrap: true)
-        markdown = Redcarpet::Markdown.new(html_renderer, extensions)
-        markdown.render(body)
-    end
+    html_renderer = HTMLwithCoderay.new(hard_wrap: true)
+    markdown = Redcarpet::Markdown.new(html_renderer, extensions)
+    markdown.render(body)
+  end
 end
