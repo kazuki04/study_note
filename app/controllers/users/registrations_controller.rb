@@ -26,20 +26,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    img_check_is = params.require(:img_check_is) 
-    if img_check_is == "false"
-      @user.avatar.purge
-    end
+    img_check_is = params.require(:img_check_is)
+    @user.avatar.purge if img_check_is == "false"
 
     @user.update(user_params)
     if @user.valid?
       flash[:notice] = "アカウント情報を保存しました"
-      redirect_to  edit_user_registration_path
+      redirect_to edit_user_registration_path
     else
       render :edit
     end
   end
-  
+
   def user_params
     params.require(:user).permit(:avatar, :nickname, :email)
   end
