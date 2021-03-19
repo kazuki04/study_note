@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
 
   def show
     @today = Date.today
-    @note = Note.find_by(written_day: @today)
+    @note = Note.find_by(written_day: @today, user_id: current_user.id)
     if params[:id].nil?
       @selected_month = Calendar.find_by(year: @today.year, month: @today.month)
       redirect_to calendar_path(@selected_month)
