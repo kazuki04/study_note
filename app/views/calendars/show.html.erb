@@ -4,7 +4,7 @@
   <div class="wrapper">
     <div class="side">
       <div class="new_note">
-        <% if @note.persisted?%>
+        <% if @note != nil %>
           <%= link_to "ノートを書く",   edit_calendar_note_path(@selected_month, @note), class: "new_note_btn" %>
         <% else %>
           <%= link_to "ノートを書く",  new_calendar_note_path(@selected_month), class: "new_note_btn" %>
