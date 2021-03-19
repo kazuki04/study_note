@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,106 +12,106 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_014013) do
-
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+ActiveRecord::Schema.define(version: 20_210_311_014_013) do
+  create_table 'active_storage_attachments', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
+                                                    unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.bigint 'byte_size', null: false
+    t.string 'checksum', null: false
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "year", null: false
-    t.integer "month", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'calendars', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.integer 'year', null: false
+    t.integer 'month', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "goals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "goal_name"
-    t.bigint "calendar_id"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["calendar_id"], name: "index_goals_on_calendar_id"
-    t.index ["user_id"], name: "index_goals_on_user_id"
+  create_table 'goals', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'goal_name'
+    t.bigint 'calendar_id'
+    t.bigint 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['calendar_id'], name: 'index_goals_on_calendar_id'
+    t.index ['user_id'], name: 'index_goals_on_user_id'
   end
 
-  create_table "note_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "note_id", null: false
-    t.bigint "tag_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["note_id"], name: "index_note_tags_on_note_id"
-    t.index ["tag_id"], name: "index_note_tags_on_tag_id"
+  create_table 'note_tags', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.bigint 'note_id', null: false
+    t.bigint 'tag_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['note_id'], name: 'index_note_tags_on_note_id'
+    t.index ['tag_id'], name: 'index_note_tags_on_tag_id'
   end
 
-  create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "highlight", null: false
-    t.string "excerpt", null: false
-    t.text "body", null: false
-    t.date "written_day", null: false
-    t.bigint "user_id"
-    t.bigint "calendar_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["calendar_id"], name: "index_notes_on_calendar_id"
-    t.index ["user_id"], name: "index_notes_on_user_id"
+  create_table 'notes', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'highlight', null: false
+    t.string 'excerpt', null: false
+    t.text 'body', null: false
+    t.date 'written_day', null: false
+    t.bigint 'user_id'
+    t.bigint 'calendar_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['calendar_id'], name: 'index_notes_on_calendar_id'
+    t.index ['user_id'], name: 'index_notes_on_user_id'
   end
 
-  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "provider"
-    t.string "uid"
-    t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  create_table 'sns_credentials', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'provider'
+    t.string 'uid'
+    t.bigint 'user_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_sns_credentials_on_user_id'
   end
 
-  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "tag_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'tags', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'tag_name', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.string 'nickname', default: '', null: false
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  create_table "year_months", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.integer "year_month", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'year_months', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8mb4', force: :cascade do |t|
+    t.integer 'year_month', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "goals", "calendars"
-  add_foreign_key "goals", "users"
-  add_foreign_key "note_tags", "notes"
-  add_foreign_key "note_tags", "tags"
-  add_foreign_key "sns_credentials", "users"
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'goals', 'calendars'
+  add_foreign_key 'goals', 'users'
+  add_foreign_key 'note_tags', 'notes'
+  add_foreign_key 'note_tags', 'tags'
+  add_foreign_key 'sns_credentials', 'users'
 end

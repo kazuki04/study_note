@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # num = 202102
 
 # 100.times do |i|
@@ -5,12 +7,10 @@
 #   num
 # end
 
-
-
-# if 
+# if
 Calendar.create(id: 1, year: 2020, month: 12)
-Calendar.create(id: 2, year: 2021, month: 01)
-Calendar.create(id: 3, year: 2021, month: 02)
-Calendar.create(id: 4, year: 2021, month: 03)
-Calendar.create(id: 5, year: 2021, month: 04)
-Calendar.create(id: 6, year: 2021, month: 05)
+Calendar.create(id: 2, year: 2021, month: 0o1)
+Calendar.create(id: 3, year: 2021, month: 0o2)
+Calendar.create(id: 4, year: 2021, month: 0o3)
+Calendar.create(id: 5, year: 2021, month: 0o4)
+Calendar.create(id: 6, year: 2021, month: 0o5)
