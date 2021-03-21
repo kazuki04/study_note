@@ -24,8 +24,12 @@ class NoteForm
 
   def save
     set_tag_list
-    tags = @tag_list.map { |tag_name| Tag.where(tag_name: tag_name).first_or_create }
-    note.update(written_day: written_day, highlight: highlight, excerpt: excerpt, tags: tags, body: body, user_id: user_id, calendar_id: calendar_id)
+    ActiveRecord::Base.transaction do
+      tags = @tag_list.map { |tag_name| Tag.where(tag_name: tag_name).first_or_create }
+      note.update!(written_day: written_day, highlight: highlight, excerpt: excerpt, tags: tags, body: body, user_id: user_id, calendar_id: calendar_id)
+    end
+  rescue ActiveRecord::RecordInvalid
+    false
   end
 
   private

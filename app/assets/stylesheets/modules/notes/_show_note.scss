@@ -1,14 +1,15 @@
 .note_show{
   height: calc(100vh - 70px);
+  padding-top: 70px;
   display: flex;
   justify-content: center;
   .note_info{
     width: 50%;
     padding: 20px;
     margin-top: 30px;
+    border: 3px solid #d0cbcbc7;
     display: flex;
     flex-direction: column;
-    background-color: $main_background_color;
     .note_show_header{
       display: flex;
       justify-content: space-between;
@@ -27,7 +28,6 @@
         }
       }
       .excerpt_field{
-        margin-bottom: 40px;
         display: flex;
         font-size: x-large;
         font-weight: 600;
@@ -36,8 +36,16 @@
           margin-right: 20px;
         }
       }
+      .tag_field{
+        margin: 15px 0px;
+        display: flex;
+        .tag_item{
+          margin-right: 10px;
+        }
+      }
       .body_field{
         height: 100%;
+        margin-top: 50px;
         font-size: large;
         .CodeRay{
           background-color: #c4e4ffba;
