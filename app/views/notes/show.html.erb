@@ -21,6 +21,11 @@
           <p class="excerpt_title">Excerpt:</p>
           <p class="note_excerpt"><%= @note.excerpt %></p>
         </div>
+        <div class="tag_field">
+          <% @note.tags.each do |tag| %>
+            <p class="tag_item"><%= tag.tag_name %></p>
+          <% end %>
+        </div>
         <div class="body_field">
           <%= markdown(@note.body).html_safe %>
         </div>

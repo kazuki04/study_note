@@ -84,14 +84,18 @@
             <%= link_to calendar_note_path(@selected_month,note) do %>
             <li class="study_list_item">
               <div class="study_info">
-                <div class="study_list_item_date">
-                  <p><%= note.written_day.day%>日</p>
+                <div class="study_field_left_content">
+                  <div class="study_list_item_date">
+                    <p><%= note.written_day.day%>日</p>
+                  </div>
+                  <div class="study_hightlight">
+                    <p>HL:<%= note.highlight%></p>
+                  </div>
                 </div>
-                <div class="study_hightlight">
-                  <p>HL:<%= note.highlight%></p>
-                </div>
-                <div class="study_time">
-                  <p>Study Time:5時間</p>
+                <div class="study_field_right_content">
+                  <div class="study_time">
+                    <p>Study Time:5時間</p>
+                  </div>
                 </div>
               </div>
               <div class="study_excerpt">

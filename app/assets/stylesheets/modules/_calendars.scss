@@ -256,13 +256,18 @@
             .study_info{
               display: flex;
               justify-content: space-between;
-              position: relative;
-              .study_hightlight{
-                position: absolute;
-                left: 120px;
+              .study_field_left_content{
+                display: flex;
+                .study_hightlight{
+                  left: 120px;
+                  margin-left: 50px;
+                }
+                .study_time{
+                  margin-right: 70px;
+                }
               }
-              .study_time{
-                margin-right: 70px;
+              .study_field_right_content{
+                margin-right: 30px;
               }
             }
             .study_excerpt{

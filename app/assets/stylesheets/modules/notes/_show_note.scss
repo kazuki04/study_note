@@ -28,7 +28,6 @@
         }
       }
       .excerpt_field{
-        margin-bottom: 40px;
         display: flex;
         font-size: x-large;
         font-weight: 600;
@@ -37,8 +36,16 @@
           margin-right: 20px;
         }
       }
+      .tag_field{
+        margin: 15px 0px;
+        display: flex;
+        .tag_item{
+          margin-right: 10px;
+        }
+      }
       .body_field{
         height: 100%;
+        margin-top: 50px;
         font-size: large;
         .CodeRay{
           background-color: #c4e4ffba;
