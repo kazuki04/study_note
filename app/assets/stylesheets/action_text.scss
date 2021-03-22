@@ -65,8 +65,12 @@ trix-toolbar .trix-button--icon {
   font-size: inherit;
   width: 2.6em;
   height: 1.6em;
+  transition: 0.3s;
   max-width: calc(0.8em + 4vw);
   text-indent: -9999px; }
+  .trix-button--icon:hover{
+    background-color: rgb(237, 237, 237);
+  }
   @media (max-device-width: 768px) {
     trix-toolbar .trix-button--icon {
       height: 2em;
