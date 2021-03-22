@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_021918) do
   create_table "notes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "highlight", null: false
     t.string "excerpt", null: false
-    t.text "body", null: false
     t.date "written_day", null: false
     t.bigint "user_id"
     t.bigint "calendar_id"
