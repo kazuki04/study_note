@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_021918) do
     t.string "highlight", null: false
     t.string "excerpt", null: false
     t.date "written_day", null: false
+    t.integer "reviewed", default: 0
     t.bigint "user_id"
     t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
