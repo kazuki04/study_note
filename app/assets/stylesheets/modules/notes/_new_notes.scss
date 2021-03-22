@@ -1,5 +1,5 @@
 .form_field{
-  height: calc(100vh - 70px);
+  // height: calc(100vh - 70px);
   padding-top: 70px;
   display: flex;
   justify-content: center;
@@ -22,6 +22,7 @@
     }
     #search_tag_field{
       position: relative;
+      z-index: 1;
       #search_tag_list{
         width: 150px;
         position: absolute;
@@ -29,11 +30,8 @@
       }
     }
     .note_field_body{
-      height: 100%;
-      padding : 10px;
-      margin-bottom: 10px;
-      font-size: large;
-      resize: none;
+      overflow: scroll;
+      height: 500px;
     }
   }
   .btn{

@@ -22,12 +22,13 @@
           <p class="note_excerpt"><%= @note.excerpt %></p>
         </div>
         <div class="tag_field">
+          <%= image_tag('tag.png', class:'tag_img') %>
           <% @note.tags.each do |tag| %>
             <p class="tag_item"><%= tag.tag_name %></p>
           <% end %>
         </div>
         <div class="body_field">
-          <%= markdown(@note.body).html_safe %>
+          <%= @note.body %>
         </div>
       </div>
     </div>

@@ -98,6 +98,14 @@
                   </div>
                 </div>
               </div>
+              <div class='tag_field'>
+                <%= image_tag('tag.png', class:'tag_img') %>
+                <div class="www">
+                <% note.tags.each do |tag| %>
+                  <%= tag.tag_name%>
+                <% end %>
+                </div>
+              </div>
               <div class="study_excerpt">
                 <p><%= note.excerpt %></p>
               </div>

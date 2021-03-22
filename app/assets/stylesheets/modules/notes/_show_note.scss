@@ -1,9 +1,10 @@
 .note_show{
-  height: calc(100vh - 70px);
+  // height: calc(100vh - 70px);
   padding-top: 70px;
   display: flex;
   justify-content: center;
   .note_info{
+    height: 700px;
     width: 50%;
     padding: 20px;
     margin-top: 30px;
@@ -39,6 +40,10 @@
       .tag_field{
         margin: 15px 0px;
         display: flex;
+        .tag_img{
+          height: 17px;
+          margin-right: 5px;
+        }
         .tag_item{
           margin-right: 10px;
         }
@@ -47,6 +52,7 @@
         height: 100%;
         margin-top: 50px;
         font-size: large;
+        overflow: scroll;
         .CodeRay{
           background-color: #c4e4ffba;
           width: 100%;

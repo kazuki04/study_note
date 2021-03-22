@@ -196,7 +196,12 @@
                 background-color: white;
                 border: 2px solid $theme_color;
                 outline: none;
+                transition: 0.3s;
                 @include btn;
+              }
+              #add_btn:hover{
+                background: rgb(131, 209, 250);
+                color: white; 
               }
               #goal_submit_btn{
                 color: $theme_color;
@@ -205,12 +210,18 @@
                 background-color: white;
                 border: 2px solid $theme_color;
                 outline: none;
+                transition: 0.3s;
                 @include btn;
+              }
+              #goal_submit_btn:hover{
+                background: rgb(131, 209, 250);
+                color: white;  
               }
             }
           }
           .goal_list{
             margin-top: 20px;
+            list-style: none;
             .goal_list_item{
               margin-left: 20px;
               margin-bottom: 10px;
@@ -245,6 +256,7 @@
           margin-top: 30px;
           margin-left: 20px;
           font-size: large;
+          list-style: none;
           .study_list_item{
             color: black;
             width: 100%;
@@ -268,6 +280,15 @@
               }
               .study_field_right_content{
                 margin-right: 30px;
+              }
+            }
+            .tag_field{
+              margin-top: 10px;
+              display: flex;
+              .tag_img{
+                height: 17px;
+                margin-top: 2px;
+                margin-right: 10px;
               }
             }
             .study_excerpt{
