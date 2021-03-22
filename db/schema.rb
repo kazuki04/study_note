@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_021918) do
+ActiveRecord::Schema.define(version: 2021_03_22_111933) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -73,13 +73,21 @@ ActiveRecord::Schema.define(version: 2021_03_22_021918) do
     t.string "highlight", null: false
     t.string "excerpt", null: false
     t.date "written_day", null: false
-    t.integer "reviewed", default: 0
     t.bigint "user_id"
     t.bigint "calendar_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["calendar_id"], name: "index_notes_on_calendar_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "review_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "note_id", null: false
+    t.integer "reviewed_count", default: 0
+    t.date "last_updated_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_review_records_on_note_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -121,5 +129,6 @@ ActiveRecord::Schema.define(version: 2021_03_22_021918) do
   add_foreign_key "goals", "users"
   add_foreign_key "note_tags", "notes"
   add_foreign_key "note_tags", "tags"
+  add_foreign_key "review_records", "notes"
   add_foreign_key "sns_credentials", "users"
 end

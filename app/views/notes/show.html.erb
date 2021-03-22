@@ -7,8 +7,17 @@
           <%=  @note.written_day%>
         </div>
         <% if user_signed_in? %>
-          <div class="note_edit_btn">
-            <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
+          <div class="note_header_right_content">
+            <div class="note_edit_btn">
+              <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
+            </div>
+            <div class="reviewed_field">
+              <p>Reviewed!0</p>
+              <div class="reviwewed_btn">
+                <p>+</p>
+                <p>-</p>
+              </div>
+            </div>
           </div>
         <% end %>
       </div>
@@ -37,3 +46,4 @@
     <%= link_to "戻る", calendar_path(@selected_month), class:"top-btn" %>
   </div>
 </div>
+<%= @note.updated_at%>

@@ -17,6 +17,16 @@
       .date{
         margin-bottom: 10px;
       }
+      .note_header_right_content{
+        .note_edit_btn{
+
+        }
+        .reviewed_field{
+          .reviwewed_btn{
+            display: flex;
+          }
+        }
+      }
     }
     .note_content{
       .highlight_field{

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note: one
+  reviewed_count: 1
+  last_updated_date: 2021-03-22
+
+two:
+  note: two
+  reviewed_count: 1
+  last_updated_date: 2021-03-22
