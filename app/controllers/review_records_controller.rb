@@ -1,6 +1,6 @@
 class ReviewRecordsController < ApplicationController
   def create
-    
+
   end
 
   def destroy
