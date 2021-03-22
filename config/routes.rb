@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     resources :notes, only: %i[new create show edit update]
   end
 
+  post 'review_record/:id', to: 'review_records#create'
+  delete 'review_record/:id', to: 'review_records#destroy'
+
   get '/calendar/:calendar_id/goals', to: 'goals#create_goal'
   get '/incremental_search_tags', to: 'notes#incremental_search_tags'
   get '/search_note', to: 'notes#search_note'
