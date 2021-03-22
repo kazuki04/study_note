@@ -22,6 +22,7 @@
     }
     #search_tag_field{
       position: relative;
+      z-index: 1;
       #search_tag_list{
         width: 150px;
         position: absolute;
