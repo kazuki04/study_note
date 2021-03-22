@@ -31,6 +31,7 @@ class NotesController < ApplicationController
       @note_form.save
       redirect_to root_path
     else
+      @note_form = NoteForm.new(note: @note)
       render :edit
     end
   end

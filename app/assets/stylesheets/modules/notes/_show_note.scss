@@ -40,6 +40,10 @@
       .tag_field{
         margin: 15px 0px;
         display: flex;
+        .tag_img{
+          height: 17px;
+          margin-right: 5px;
+        }
         .tag_item{
           margin-right: 10px;
         }
