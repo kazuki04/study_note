@@ -7,7 +7,12 @@
     <%= f.hidden_field :written_day, value: today_date %>
     <%= f.text_field :highlight, class:"note_field", placeholder: "highlight" %>
     <%= f.text_field :excerpt, class:"note_field", placeholder: "excerpt" %>
-    <%= f.text_field :tag_names, class:"note_field", placeholder: ",で区切り、タグを最大5つまで登録できます", autocomplete: "off" %>
+    
+    <%if note_form.persisted? %>
+      <%= f.text_field :tag_names, class:"note_field", placeholder: ",で区切り、タグを最大5つまで登録できます", autocomplete: "off", value:  note_form.tags%>
+    <% else %>
+      <%= f.text_field :tag_names, class:"note_field", placeholder: ",で区切り、タグを最大5つまで登録できます", autocomplete: "off" %>
+    <% end %>
     <div id="search_tag_field">
       <div id="search_tag_list"></div>
     </div>
