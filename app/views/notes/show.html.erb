@@ -13,10 +13,6 @@
             </div>
             <div class="reviewed_field">
               <p>Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
-              <div class="reviewed_btn">
-                <%= link_to "＋", create_review_path(@note), method: :POST, remote: true %>
-                <%= link_to "ー", destroy_review_path(@note), method: :DELETE, remote: true %>
-              </div>
             </div>
           </div>
         <% end %>
@@ -50,8 +46,10 @@
         <p>Did you review it?</p>
       </div>
       <div class="review_confirm_btn">
-        <i class="fas fa-check-circle"></i>
-        <p>Reviewd!!</p>
+        <%= link_to create_review_path(@note), method: :POST, remote: true do %>
+          <i class="fas fa-check-circle"></i>
+          <p>Reviewd!!</p>
+        <% end %>
       </div>
     </div>
   </div>

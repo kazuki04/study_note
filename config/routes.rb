@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
 
   post 'review_record/:id', to: 'review_records#create', as: 'create_review'
-  delete 'review_record/:id', to: 'review_records#destroy', as: 'destroy_review'
 
   get '/calendar/:calendar_id/goals', to: 'goals#create_goal'
   get '/incremental_search_tags', to: 'notes#incremental_search_tags'
