@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_111933) do
   create_table "review_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "note_id", null: false
     t.integer "reviewed_count", default: 0
-    t.date "last_updated_date"
+    t.date "last_reviewed_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["note_id"], name: "index_review_records_on_note_id"

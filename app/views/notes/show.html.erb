@@ -12,10 +12,10 @@
               <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
             </div>
             <div class="reviewed_field">
-              <p>Reviewed!<span id="reviewed_count"><%= 1%></span></p>
-              <div class="reviwewed_btn">
-                <%= link_to "+", create_review_path(@note), method: :POST, remote: true %>
-                <%= link_to "-", destroy_review_path(@note), method: :DELETE, remote: true %>
+              <p>Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
+              <div class="reviewed_btn">
+                <%= link_to "＋", create_review_path(@note), method: :POST, remote: true %>
+                <%= link_to "ー", destroy_review_path(@note), method: :DELETE, remote: true %>
               </div>
             </div>
           </div>
@@ -41,9 +41,21 @@
         </div>
       </div>
     </div>
+
+    <div class="modal">
+      <div class="modal_header">
+        <i class="fas fa-times-circle cross"></i>
+      </div>
+      <div class="review_title">
+        <p>Did you review it?</p>
+      </div>
+      <div class="review_confirm_btn">
+        <i class="fas fa-check-circle"></i>
+        <p>Reviewd!!</p>
+      </div>
+    </div>
   </div>
   <div class="btn-field">
     <%= link_to "戻る", calendar_path(@selected_month), class:"top-btn" %>
   </div>
 </div>
-<%= @note.updated_at%>
