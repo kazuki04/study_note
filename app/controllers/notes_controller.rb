@@ -58,7 +58,6 @@ class NotesController < ApplicationController
     return false unless search_input_val.match(/^[ぁ-んー－]{1,1}$/).nil?
 
     search_result = Note.where("note_body LIKE ?", "%#{search_input_val}%")
-    # search_result = ActiveRecord::Base.connection.select_all("select * from action_text_rich_texts where body like '%#{search_input_val}%'")
     
     response_array = []
     # noteのbodyの内容を抽出する→抽出したものを返す
@@ -74,7 +73,12 @@ class NotesController < ApplicationController
         i += 1
       end
       # search_target+search_input_val.length+10で検索ワードの文字数＋10
-      extracted_body = note_record.note_body.slice(search_target - 10..search_target + search_input_val.length + 10)
+      if 10 > search_target
+        extracted_body = note_record.note_body.slice(search_target..search_target + search_input_val.length + 10)
+      else
+        extracted_body = note_record.note_body.slice(search_target - 10..search_target + search_input_val.length + 10)
+      end
+
       response_array << { highlight: note_record.highlight, extracted_body: extracted_body, calendar_id: note_record.calendar_id, note_id: note_record.id }
     end
 
