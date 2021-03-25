@@ -1,6 +1,6 @@
 class NoteForm
   include ActiveModel::Model
-  attr_accessor :written_day, :highlight, :excerpt, :body, :tag_names, :user_id, :calendar_id, :tags
+  attr_accessor :written_day, :highlight, :excerpt, :body, :note_body, :tag_names, :user_id, :calendar_id, :tags
 
   with_options presence: true do
     validates :highlight
@@ -26,7 +26,7 @@ class NoteForm
     set_tag_list
     ActiveRecord::Base.transaction do
       tags = @tag_list.map { |tag_name| Tag.where(tag_name: tag_name).first_or_create }
-      note.update!(written_day: written_day, highlight: highlight, excerpt: excerpt, tags: tags, body: body, user_id: user_id, calendar_id: calendar_id)
+      note.update!(written_day: written_day, highlight: highlight, excerpt: excerpt, tags: tags, body: body, note_body: note_body, user_id: user_id, calendar_id: calendar_id)
     end
   rescue ActiveRecord::RecordInvalid
     false

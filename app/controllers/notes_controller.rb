@@ -10,7 +10,6 @@ class NotesController < ApplicationController
 
   def create
     @note_form = NoteForm.new(note_params)
-
     if @note_form.valid?
       @note_form.save
       redirect_to root_path
@@ -19,7 +18,9 @@ class NotesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @reviewed_record = ReviewRecord.where(note_id: @note.id).first_or_initialize.reviewed_count
+  end
 
   def edit
     @note_form = NoteForm.new(note: @note)
@@ -56,22 +57,28 @@ class NotesController < ApplicationController
     search_input_val = params[:search_input_val]
     return false unless search_input_val.match(/^[ぁ-んー－]{1,1}$/).nil?
 
-    search_result = Note.where("body LIKE ?", "%#{search_input_val}%")
+    search_result = Note.where("note_body LIKE ?", "%#{search_input_val}%")
+    
     response_array = []
     # noteのbodyの内容を抽出する→抽出したものを返す
     search_target = 0
     search_result.each do |note_record|
       i = 0
-      note_record.body.each_char do |_letter|
+      note_record.note_body.each_char do |_letter|
         # bodyの0番目から、入力された文字分の範囲で検索
-        if note_record.body.slice(i, search_input_val.length) == search_input_val
+        if note_record.note_body.slice(i, search_input_val.length) == search_input_val
           # bodyの中の何番目の文字かを変数に代入
           search_target = i
         end
         i += 1
       end
       # search_target+search_input_val.length+10で検索ワードの文字数＋10
-      extracted_body = note_record.body.slice(search_target - 10..search_target + search_input_val.length + 10)
+      if 10 > search_target
+        extracted_body = note_record.note_body.slice(search_target..search_target + search_input_val.length + 10)
+      else
+        extracted_body = note_record.note_body.slice(search_target - 10..search_target + search_input_val.length + 10)
+      end
+
       response_array << { highlight: note_record.highlight, extracted_body: extracted_body, calendar_id: note_record.calendar_id, note_id: note_record.id }
     end
 
@@ -81,7 +88,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:written_day, :highlight, :tag_names, :excerpt, :body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
+    params.require(:note).permit(:written_day, :highlight, :tag_names, :excerpt, :body, :note_body).merge(user_id: current_user.id, calendar_id: @selected_month.id)
   end
 
   def set_selected_month

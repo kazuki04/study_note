@@ -4,24 +4,44 @@
       <h1>Study Note</h1>
     <% end %>
   </div>
+
+  <script>
+    function mouseOver(element){
+      element.style.backgroundColor = "#dcdbdb";
+    }
+    function mouseOut(element){
+      element.style.backgroundColor = "#efe8e8"
+    }
+  </script>
+
   <div class="search_field">
     <form id="search_form">
       <label for="search_input">
         <i class="fas fa-search"></i>
       </label>
-      <input type="text" id="search_input">
+      <input type="text" id="search_input" autocomplete="off">
     </form>
     <div id="search_result"></div>
   </div>
   <div class="header_icon_field">
-    <div class="search_icon">
+    <div id="search_icon">
       <i class="fas fa-search"></i>
     </div>
-    <%= link_to  new_calendar_note_path(@selected_month) do %>
-      <div class="pen_icon">
-        <i class="fas fa-pencil-alt"></i>
-      </div>
+
+    <% if @note != nil %>
+      <%= link_to  edit_calendar_note_path(@selected_month, @note) do %>
+        <div class="pen_icon">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to  new_calendar_note_path(@selected_month) do %>
+        <div class="pen_icon">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+      <% end %>
     <% end %>
+
   </div>
   <div class="account">
     <%= link_to edit_user_registration_path, class:"account_link" do %>
@@ -34,3 +54,4 @@
     <% end %>
   </div>
 </header>
+
