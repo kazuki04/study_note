@@ -12,7 +12,7 @@
               <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
             </div>
             <div class="reviewed_field">
-              <p id="reviewed_btn">Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
+              <p id="reviewed_btn">Reviewed!<span id="reviewed_count"><%= @reviewed_record %></span></p>
             </div>
           </div>
         <% end %>
