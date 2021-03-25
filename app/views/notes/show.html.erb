@@ -7,8 +7,13 @@
           <%=  @note.written_day%>
         </div>
         <% if user_signed_in? %>
-          <div class="note_edit_btn">
-            <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
+          <div class="note_header_right_content">
+            <div class="note_edit_btn">
+              <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
+            </div>
+            <div class="reviewed_field">
+              <p id="reviewed_btn">Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
+            </div>
           </div>
         <% end %>
       </div>
@@ -30,6 +35,21 @@
         <div class="body_field">
           <%= @note.body %>
         </div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal_header">
+        <i class="fas fa-times-circle" id="cross"></i>
+      </div>
+      <div class="review_title">
+        <p>Did you review it?</p>
+      </div>
+      <div class="review_confirm_btn">
+        <%= link_to create_review_path(@note), method: :POST, remote: true do %>
+          <i class="fas fa-check-circle"></i>
+          <p>Reviewd!!</p>
+        <% end %>
       </div>
     </div>
   </div>

@@ -17,6 +17,18 @@
       .date{
         margin-bottom: 10px;
       }
+      .note_header_right_content{
+        .reviewed_field{
+          margin-top: 10px;
+          #reviewed_count{
+            margin-left: 7px;
+          }
+          .reviewed_btn{
+            font-size: 20px;
+            display: flex;
+          }
+        }
+      }
     }
     .note_content{
       .highlight_field{
@@ -57,6 +69,42 @@
           background-color: #c4e4ffba;
           width: 100%;
         }
+      }
+    }
+  }
+  #modal{
+    height: calc(100vh - 50%);
+    width: calc(100vw - 60%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: red;
+    display: none;
+    .modal_header{
+      display: flex;
+      justify-content: flex-end;
+      #cross{
+        margin: 7px;
+      }
+    }
+    .review_title{
+      width: 50%;
+      padding-bottom: 70px;
+      margin: auto;
+      text-align: center;
+      font-size: xx-large;
+      font-family: Georgia, serif;
+    }
+    .review_confirm_btn{
+      width: 50%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      font-size: x-large;
+      font-family: Georgia, serif;
+      .fa-check-circle{
+        margin-right: 7px;
       }
     }
   }
