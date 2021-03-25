@@ -45,7 +45,6 @@ window.addEventListener("load", () => {
       }
 
       search_result_array.forEach(search_object => {
-        // search_result_field.appendChild(buildSearchResultHtml(search_object))
         search_result_field.insertAdjacentHTML("beforeend", buildSearchResultHtml(search_object))
       });
       search_result_field.style.display = "block" 
