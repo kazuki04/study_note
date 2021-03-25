@@ -133,11 +133,30 @@
         font-size: xx-large; 
         .arrow-left{
           color: #7b7b7bc7;
-          margin-right: 10px;
+          margin-right: 4px;
+        }
+        .fa-chevron-left{
+          height: 32px;
+          width: 22px;
+          padding-left: 3px;
+          padding-right: 7px;
+          border-radius: 50px;
+        }
+        .fa-chevron-left:hover{
+          background-color: #eaeaea;
         }
         .arrow-right{
           color: #7b7b7bc7;
-          margin-left: 4px;
+          .fa-chevron-right{
+            height: 32px;
+            width: 22px;
+            padding-left: 8px;
+            padding-right: 3px;
+            border-radius: 50px;
+          }
+          .fa-chevron-right:hover{
+            background-color: #eaeaea;
+          }
         }
       }
       .main_top{

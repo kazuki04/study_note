@@ -15,11 +15,11 @@
     <div class="main">
       <div class="month_field">
         <%= link_to  calendar_path(@last_month), class:"arrow-left" do%>
-          &lt;
+          <i class="fas fa-chevron-left"></i>
         <% end %>
         <h1 class="this_month"><%= "#{@selected_month.month}月" %></h1>
         <%= link_to calendar_path(@next_month), class:"arrow-right" do %>
-          <p>></p>
+          <i class="fas fa-chevron-right"></i>
         <% end %>
       </div>
       <div class="main_top">
