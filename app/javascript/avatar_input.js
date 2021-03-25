@@ -1,11 +1,15 @@
-$(function(){
-  const input = $("#avatar_input")[0]
-  $("#avatar_upload_btn").on("click", function(){
-    input.click();
+window.addEventListener("load", () => {
+  const input_element = document.getElementById("avatar_input");
+  const avatar_upload_btn = document.getElementById("avatar_upload_btn");
+  const avatar_delete_btn = document.getElementById("avatar_delete_btn");
+
+  avatar_upload_btn.addEventListener("click", () => {
+    input_element.click();
   })
 
-  $("#avatar_delete_btn").on("click", function(){
-    $("#avatar_img").remove();
-    $("#img_check_is").val(false)
+  avatar_delete_btn.addEventListener("click", ()=>{
+    document.getElementById("avatar_img").remove();
+    document.getElementById("img_check_is").value = "false";
   })
+  
 })
