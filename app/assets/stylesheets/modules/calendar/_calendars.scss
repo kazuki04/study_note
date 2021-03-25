@@ -36,11 +36,11 @@
           width: 450px;
           margin-left: 40px;
           border : none;
-          outline: 0;
+          outline: none;
         }
       }
       #search_result{
-        height: 400px;
+        height: 100%;
         width: 500px;
         padding: 7px;
         border: 1px solid gray;
