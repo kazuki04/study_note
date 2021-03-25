@@ -12,7 +12,7 @@
               <%= link_to "編集する", edit_calendar_note_path(@selected_month, @note) %>
             </div>
             <div class="reviewed_field">
-              <p>Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
+              <p id="reviewed_btn">Reviewed!<span id="reviewed_count"><%= @note.review_record.reviewed_count %></span></p>
             </div>
           </div>
         <% end %>
@@ -38,9 +38,9 @@
       </div>
     </div>
 
-    <div class="modal">
+    <div id="modal" class="modal">
       <div class="modal_header">
-        <i class="fas fa-times-circle cross"></i>
+        <i class="fas fa-times-circle" id="cross"></i>
       </div>
       <div class="review_title">
         <p>Did you review it?</p>

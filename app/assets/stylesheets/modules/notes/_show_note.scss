@@ -72,7 +72,7 @@
       }
     }
   }
-  .modal{
+  #modal{
     height: calc(100vh - 50%);
     width: calc(100vw - 60%);
     position: absolute;
@@ -84,7 +84,7 @@
     .modal_header{
       display: flex;
       justify-content: flex-end;
-      .cross{
+      #cross{
         margin: 7px;
       }
     }
