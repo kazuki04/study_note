@@ -51,6 +51,9 @@
         top: 65px;
         background-color: #efe8e8;
         overflow: scroll;
+        .search_item:hover{
+          background-color: #dcdbdb;
+        }
       }
     }
     .header_icon_field{

@@ -6,9 +6,7 @@ window.addEventListener("load", () => {
   const buildSearchResultHtml = (search_result_object) => { 
     const html = `
     <div class="search_item"
-          style="transition: 0.3s;"
-          onmouseover="mouseOver(this)"
-          onmouseout="mouseOut(this)">
+          style="transition: 0.3s;">
 
       <a class="search_result_item" href="/calendars/${search_result_object.calendar_id}/notes/${search_result_object.note_id}">
         <div class="search_item_highlight"
