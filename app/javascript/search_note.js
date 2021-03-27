@@ -5,26 +5,15 @@ window.addEventListener("load", () => {
   
   const buildSearchResultHtml = (search_result_object) => { 
     const html = `
-    <div class="search_item"
-          style="transition: 0.3s;">
-
+    <div class="search_item">
       <a class="search_result_item" href="/calendars/${search_result_object.calendar_id}/notes/${search_result_object.note_id}">
-        <div class="search_item_highlight"
-              style="height: 30px;
-                    padding-left: 10px;
-                    background-color: rgba(0, 137, 253, 0.73);
-                    line-height: 30px;
-                    color: rgb(255, 255, 255);">
+        <div class="search_item_highlight">
           ${search_result_object.highlight}
         </div>
-        <div class="search_item_body"
-              style="height: 50px;
-                      padding: 10px;
-                      color: black;">
+        <div class="search_item_body">
           ${search_result_object.extracted_body}
         </div>
       </a>
-
     </div>
     `
     return html;

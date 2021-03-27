@@ -41,7 +41,7 @@
         }
       }
       #search_result{
-        height: 100%;
+        height: 200px;
         width: 500px;
         padding: 7px;
         border: 1px solid gray;
@@ -51,6 +51,23 @@
         top: 65px;
         background-color: #efe8e8;
         overflow: scroll;
+        .search_item{
+          transition: 0.3s;
+          .search_result_item{
+            .search_item_highlight{
+              height: 30px;
+              padding-left: 10px;
+              background-color: rgba(0, 137, 253, 0.73);
+              line-height: 30px;
+              color: rgb(255, 255, 255);
+            }
+            .search_item_body{
+              height: 50px;
+              padding: 10px;
+              color: black;
+            }
+          }
+        }
         .search_item:hover{
           background-color: #dcdbdb;
         }
