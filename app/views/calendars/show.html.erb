@@ -13,14 +13,19 @@
     </div>
 
     <div class="main">
-      <div class="month_field">
-        <%= link_to  calendar_path(@last_month), class:"arrow-left" do%>
-          <i class="fas fa-chevron-left"></i>
-        <% end %>
-        <h1 class="this_month"><%= "#{@selected_month.month}月" %></h1>
-        <%= link_to calendar_path(@next_month), class:"arrow-right" do %>
-          <i class="fas fa-chevron-right"></i>
-        <% end %>
+      <div class="main_header">
+        <div class="arrow_field">
+          <%= link_to  calendar_path(@last_month), class:"arrow-left" do%>
+            <i class="fas fa-chevron-left"></i>
+          <% end %>
+          <%= link_to calendar_path(@next_month), class:"arrow-right" do %>
+            <i class="fas fa-chevron-right"></i>
+          <% end %>
+        </div>
+        <div class="year_moth_field">
+          <h1 class="this_year"><%= "#{@selected_month.year}年" %></h1>
+          <h1 class="this_month"><%= "#{@selected_month.month}月" %></h1>
+        </div>
       </div>
       <div class="main_top">
         <div class="goal_field">
