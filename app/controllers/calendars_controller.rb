@@ -29,6 +29,6 @@ class CalendarsController < ApplicationController
       @goal = @goals[0]
     end
 
-    @notes = Note.where(calendar_id: @selected_month.id, user_id: current_user.id)
+    @notes = Note.where(calendar_id: @selected_month.id, user_id: current_user.id).includes(:tags)
   end
 end
