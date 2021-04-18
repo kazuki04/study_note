@@ -55,28 +55,29 @@ class NotesController < ApplicationController
 
   def search_note
     search_input_val = params[:search_input_val]
+    # 「あ」などの一文字で検索されることの回避
     return false unless search_input_val.match(/^[ぁ-んー－]{1,1}$/).nil?
 
     search_result = Note.where("note_body LIKE ?", "%#{search_input_val}%")
     
     response_array = []
     # noteのbodyの内容を抽出する→抽出したものを返す
-    search_target = 0
+    search_target_position = 0
     search_result.each do |note_record|
       i = 0
       note_record.note_body.each_char do |_letter|
-        # bodyの0番目から、入力された文字分の範囲で検索
+        # bodyの0番目から、入力された文字数分の範囲で一文字ずつずらして検索
         if note_record.note_body.slice(i, search_input_val.length) == search_input_val
           # bodyの中の何番目の文字かを変数に代入
-          search_target = i
+          search_target_position = i
         end
         i += 1
       end
-      # search_target+search_input_val.length+10で検索ワードの文字数＋10
-      if 10 > search_target
-        extracted_body = note_record.note_body.slice(search_target..search_target + search_input_val.length + 10)
+      #検索した文字列の10文字前から出力したいが、場合によっては投稿の最初から10文字番目以内に検索ワードが存在するためのif文
+      if 10 > search_target_position
+        extracted_body = "..." + note_record.note_body.slice(search_target_position..note_record.note_body.length()).truncate(40)
       else
-        extracted_body = note_record.note_body.slice(search_target - 10..search_target + search_input_val.length + 10)
+        extracted_body = "..." + note_record.note_body.slice(search_target_position - 10..note_record.note_body.length()).truncate(40)
       end
 
       response_array << { highlight: note_record.highlight, extracted_body: extracted_body, calendar_id: note_record.calendar_id, note_id: note_record.id }
