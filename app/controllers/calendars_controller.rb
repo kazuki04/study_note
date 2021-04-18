@@ -4,13 +4,8 @@ class CalendarsController < ApplicationController
   def show
     @today = Date.today
     @note = Note.find_by(written_day: @today, user_id: current_user.id)
-    if params[:id].nil?
-      @selected_month = Calendar.find_by(year: @today.year, month: @today.month)
-      redirect_to calendar_path(@selected_month)
-    else
-      @selected_month = Calendar.find(params[:id])
-    end
-
+    set_selected_month()
+    
     @last_month = if @selected_month.id != 1
                     Calendar.find(@selected_month.id - 1)
                   else
@@ -22,6 +17,7 @@ class CalendarsController < ApplicationController
     else
       @next_month = Calendar.find(@selected_month.id + 1)
     end
+
     if @selected_month.goals.empty?
       @goal = @selected_month.goals.new
     else
@@ -30,5 +26,17 @@ class CalendarsController < ApplicationController
     end
 
     @notes = Note.where(calendar_id: @selected_month.id, user_id: current_user.id).includes(:tags)
+  end
+
+
+  private
+
+  def set_selected_month
+    if params[:id].nil?
+      @selected_month = Calendar.find_by(year: @today.year, month: @today.month)
+      redirect_to calendar_path(@selected_month)
+    else
+      @selected_month = Calendar.find(params[:id])
+    end
   end
 end
