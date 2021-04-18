@@ -146,36 +146,44 @@
       width: 100%;
       border-left: 1px solid $border_color;
       overflow: scroll;
-      .month_field{
-        margin-left: 50px;
-        margin-top: 50px;
+      .main_header{
         display: flex;
-        font-size: xx-large; 
-        .arrow-left{
-          color: #7b7b7bc7;
-          margin-right: 4px;
-        }
-        .fa-chevron-left{
-          height: 32px;
-          width: 22px;
-          padding-left: 3px;
-          padding-right: 6px;
-          border-radius: 50px;
-        }
-        .fa-chevron-left:hover{
-          background-color: #eaeaea;
-        }
-        .arrow-right{
-          color: #7b7b7bc7;
-          .fa-chevron-right{
-            height: 32px;
-            width: 22px;
-            padding-left: 8px;
-            padding-right: 3px;
+        .arrow_field{
+          margin-left: 50px;
+          margin-top: 50px;
+          display: flex;
+          font-size: x-large;; 
+          .arrow-left{
+            color: #7b7b7bc7;
+            margin-right: 4px;
+          }
+          .fa-chevron-left{
+            padding-left: 5px;
+            padding-right: 5px;
             border-radius: 50px;
           }
-          .fa-chevron-right:hover{
+          .fa-chevron-left:hover{
             background-color: #eaeaea;
+          }
+          .arrow-right{
+            color: #7b7b7bc7;
+            .fa-chevron-right{
+              padding-left: 5px;
+              padding-right: 5px;
+              border-radius: 50px;
+            }
+            .fa-chevron-right:hover{
+              background-color: #eaeaea;
+            }
+          }
+        }
+        .year_moth_field{
+          padding-top: 50px;
+          padding-left: 5px;
+          font-size: x-large;
+          display: flex;
+          .this_year{
+            margin-right: 8px;
           }
         }
       }
@@ -259,7 +267,7 @@
               }
             }
           }
-          .goal_list{
+          #goal_list{
             margin-top: 20px;
             list-style: none;
             .goal_list_item{

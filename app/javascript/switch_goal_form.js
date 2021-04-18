@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   pen_icon.addEventListener("click", () => {
     const goal_form = document.getElementById("goal_form");
-    const goal_list = document.getElementsByClassName("goal_list");
+    const goal_list = document.getElementById("goal_list");
     if(getComputedStyle(goal_form).display == "none"){
       goal_form.style.display = "block";
       goal_list.style.display = "none"
