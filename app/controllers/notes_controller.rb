@@ -73,11 +73,13 @@ class NotesController < ApplicationController
         end
         i += 1
       end
+
+      insert_span_tag(note_record.note_body, search_target_position, search_input_val)
       #検索した文字列の10文字前から出力したいが、場合によっては投稿の最初から10文字番目以内に検索ワードが存在するためのif文
       if 10 > search_target_position
-        extracted_body = "..." + note_record.note_body.slice(search_target_position..note_record.note_body.length()).truncate(40)
+        extracted_body = "..." + note_record.note_body.slice(search_target_position..note_record.note_body.length()).truncate(80)
       else
-        extracted_body = "..." + note_record.note_body.slice(search_target_position - 10..note_record.note_body.length()).truncate(40)
+        extracted_body = "..." + note_record.note_body.slice(search_target_position - 10..note_record.note_body.length()).truncate(80)
       end
 
       response_array << { highlight: note_record.highlight, extracted_body: extracted_body, calendar_id: note_record.calendar_id, note_id: note_record.id }
@@ -85,6 +87,7 @@ class NotesController < ApplicationController
 
     render json: { response_array: response_array }
   end
+
 
   private
 
@@ -106,5 +109,10 @@ class NotesController < ApplicationController
 
   def user_confirmation
     redirect_to root_path if current_user.id != @note.user_id
+  end
+
+  def insert_span_tag(note_body, search_target_position, search_input_val)
+    note_body.insert(search_target_position, '<span class="search_word">')
+    note_body.insert(search_target_position + search_input_val.length() + 26, "</span>")
   end
 end
