@@ -63,5 +63,19 @@ group :test do
   gem 'webdrivers'
 end
 
+group :production do
+  gem 'coderay'
+  gem 'devise'
+  gem 'font-awesome-sass', '~> 5.15.1'
+  gem 'image_processing', '~> 1.2'
+  gem 'jquery-rails'
+  gem 'mini_magick'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+  gem "omniauth-rails_csrf_protection"
+  gem 'redcarpet', '~> 2.3.0'
+  gem 'actiontext' 
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
