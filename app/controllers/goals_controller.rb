@@ -6,16 +6,15 @@ class GoalsController < ApplicationController
     update_array = []
     goal_params
     if @goals.empty?
-      @goal_parameters.each do |goal_parameter|
-        goal_name = goal_parameter[1].require(:value)
+      @goal_parameters.each do |goal_name|
         goal = Goal.create(goal_name: goal_name, calendar_id: params[:calendar_id], user_id: current_user.id)
         update_array.push(goal)
       end
     else
       @goals.each(&:destroy)
-      params.require(:goal_params).each do |parameter|
-        if parameter[0] != "0"
-          goal = Goal.create(goal_name: parameter[1][:value], calendar_id: selected_month.id, user_id: current_user.id)
+      @goal_parameters.each do |goal_name|
+        if goal_name != "0"
+          goal = Goal.create(goal_name: goal_name, calendar_id: selected_month.id, user_id: current_user.id)
           update_array.push(goal)
         end
       end
@@ -38,6 +37,7 @@ class GoalsController < ApplicationController
   def update
     @selected_month = Calendar.find(params[:id])
     @goals = @selected_month.goals
+    binding.pry
     @goals.each_with_index do |goal, i|
       goal_name = params.require(:goal)[:goal_names][i]
       goal.update(goal_name: goal_name)
@@ -47,6 +47,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    @goal_parameters = params.require(:goal_params)
+    # @goal_parameters = params.require(:goal_params)
+    @goal_parameters = params.require(:form_values)
   end
 end
