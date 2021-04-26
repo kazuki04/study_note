@@ -37,7 +37,7 @@ group :development, :test do
   gem 'image_processing', '~> 1.2'
   gem 'jquery-rails'
   gem 'mini_magick'
-  gem 'omniauth','2.0'
+  gem 'omniauth','1.9.1'
   gem 'omniauth-google-oauth2'
   gem "omniauth-rails_csrf_protection"
   gem 'redcarpet', '~> 2.3.0'
@@ -70,7 +70,7 @@ group :production do
   gem 'image_processing', '~> 1.2'
   gem 'jquery-rails'
   gem 'mini_magick'
-  gem 'omniauth','2.0'
+  gem 'omniauth','1.9.1'
   gem 'omniauth-google-oauth2'
   gem "omniauth-rails_csrf_protection"
   gem 'redcarpet', '~> 2.3.0'
