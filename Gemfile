@@ -37,7 +37,7 @@ group :development, :test do
   gem 'image_processing', '~> 1.2'
   gem 'jquery-rails'
   gem 'mini_magick'
-  gem 'omniauth'
+  gem 'omniauth','1.9.1'
   gem 'omniauth-google-oauth2'
   gem "omniauth-rails_csrf_protection"
   gem 'redcarpet', '~> 2.3.0'
@@ -61,6 +61,20 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'coderay'
+  gem 'devise'
+  gem 'font-awesome-sass', '~> 5.15.1'
+  gem 'image_processing', '~> 1.2'
+  gem 'jquery-rails'
+  gem 'mini_magick'
+  gem 'omniauth','1.9.1'
+  gem 'omniauth-google-oauth2'
+  gem "omniauth-rails_csrf_protection"
+  gem 'redcarpet', '~> 2.3.0'
+  gem 'actiontext' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
