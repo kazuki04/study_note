@@ -18,9 +18,16 @@ $(function(){
     last_input = $(".goal_input:last")
     last_index = last_input.data("index")
     
-    if($(`#goal_${last_index}`).val() != ""){
-      $("#input_field").append(build_input(last_index + 1))
+    if($(`#goal_${last_index}`).val() == ""){
+      $("#goal_alert").fadeIn( "slow", function() {
+        // Animation complete
+      })
+
+      return false;
     }
+
+    $("#input_field").append(build_input(last_index + 1))
+
   })
 
   $("#input_field").on("click", ".goal_delete_btn", function(){

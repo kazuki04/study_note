@@ -26,7 +26,8 @@ window.addEventListener("DOMContentLoaded", () => {
       goal_list.innerHTML = li_item
       goal_list.style.display = "block"
 
-      document.getElementById("goal_submit_btn").removeAttribute("disabled")
+      document.getElementById("goal_submit_btn").removeAttribute("disabled");
+      document.getElementById("goal_alert").style.display = "none";
     })
   })
 })

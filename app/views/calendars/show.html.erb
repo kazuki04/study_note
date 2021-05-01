@@ -34,6 +34,9 @@
             <div class="edit_pen">
               <i class="fas fa-edit"></i>
             </div>
+            <div id="goal_alert">
+              <p>目標を入力してください</p>
+            </div>
           </div>
           <% if @goal.id == nil %>
             <%= form_with model: [@selected_month, @goal], id:"goal_form", local: true do |f| %>

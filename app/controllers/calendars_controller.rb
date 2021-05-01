@@ -12,8 +12,8 @@ class CalendarsController < ApplicationController
                     Calendar.find_by(year: @today.year, month: @today.month)
                   end
 
-    if (@selected_month.id + 1) == 7
-      redirect_to root_path
+    if (@selected_month.id + 1) == 8
+      # redirect_to root_path
     else
       @next_month = Calendar.find(@selected_month.id + 1)
     end
