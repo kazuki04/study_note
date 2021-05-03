@@ -32,8 +32,5 @@ $(function(){
 
   $("#input_field").on("click", ".goal_delete_btn", function(){
     $(this).parent().remove();
-    if($(".input_field").children().length == 0){
-      $(".input_field").append(build_input(0)) 
-    }
   })
 });
