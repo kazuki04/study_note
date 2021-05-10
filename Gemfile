@@ -42,6 +42,7 @@ group :development, :test do
   gem "omniauth-rails_csrf_protection"
   gem 'redcarpet', '~> 2.3.0'
   gem 'actiontext'
+  gem 'rspec-rails', '~> 4.1.0'
 end
 
 group :development do
