@@ -44,6 +44,7 @@ group :development, :test do
   gem 'actiontext'
   gem 'rspec-rails', '~> 4.1.0'
   gem 'factory_bot_rails'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -51,7 +52,6 @@ group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

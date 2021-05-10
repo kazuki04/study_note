@@ -1,5 +1,10 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe NoteForm, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# RSpec.describe NoteForm, type: :model do
+#   describe "validation" do
+#     context "is invalid" do
+#       note_form = FactoryBot.build(:note_form)
+#       binding.pry
+#     end
+#   end
+# end
