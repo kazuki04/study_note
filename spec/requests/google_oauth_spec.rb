@@ -13,6 +13,7 @@ RSpec.describe "GoogleOauth", type: :request do
     it "responds successfully" do
       post '/users/auth/google_oauth2/callback'
       expect(response).to have_http_status(200)
+      expect(request.env["omniauth.auth"].present?).to eq(true)
     end
     it "is same email if the user have registered in the past" do
       @user.save
