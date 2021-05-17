@@ -6,7 +6,6 @@ module GoogleOauthMockHelper
       uid: 123456789,
       info: {
         :name => "John Doe",
-        # :email => "john.doe@example.com",
         :email => email,
         :first_name => "John",
         :last_name => "Doe"
